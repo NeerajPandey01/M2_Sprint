@@ -1,0 +1,52 @@
+package com.profileservice.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.service.ProfileService;
+
+import jakarta.validation.Valid;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/profiles")
+public class ProfileController {
+    @Autowired
+    private ProfileService profileService;
+
+    @PostMapping("/")
+    public ResponseEntity<UserProfile> createProfile(@Valid @RequestBody UserProfile profile) {
+        return profileService.createProfile(profile);
+    }
+
+    @PutMapping("/{profileId}")
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable int profileId,@Valid @RequestBody UserProfile profile) {
+        return profileService.updateProfile(profileId, profile);
+    }
+
+    @GetMapping("/{profileId}")
+    public ResponseEntity<UserProfile> getProfileById(@PathVariable int profileId) {
+        return profileService.getProfileById(profileId);
+    }
+
+    
+    @GetMapping("/")
+    public ResponseEntity< List<UserProfile>> getAllProfiles() {
+        return profileService.getAllProfiles();
+        
+    }
+    @GetMapping("/carts/{customerId}")
+	public ResponseEntity<List<Cart>> getAllByCustomerId(@PathVariable("customerId") int customerId){
+		return profileService.getCart(customerId);
+	}
+
+    @DeleteMapping("/{profileId}")
+    public ResponseEntity<String> deleteProfile(@PathVariable int profileId) {
+      return  profileService.deleteProfile(profileId);
+    }
+
+}
+

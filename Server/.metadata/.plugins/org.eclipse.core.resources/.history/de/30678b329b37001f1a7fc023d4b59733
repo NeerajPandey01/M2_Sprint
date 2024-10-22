@@ -1,0 +1,26 @@
+package com.cartservice.app.service;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.cartservice.app.entity.Cart;
+
+import jakarta.validation.Valid;
+
+public interface CartService {
+
+	ResponseEntity<Cart> getcartById(int cartId);
+
+	ResponseEntity<Cart> updateCart(@Valid int cartId, @Valid Cart cart);
+
+	ResponseEntity<List<Cart>> getallcarts();
+
+	ResponseEntity<Cart> addCart(@Valid Cart cart);
+
+	double cartTotal(Cart cart);
+
+	ResponseEntity<String> deleteCart(int cartId);
+
+	ResponseEntity<List<Cart>> getAllByCustomerId(int customerId);
+}

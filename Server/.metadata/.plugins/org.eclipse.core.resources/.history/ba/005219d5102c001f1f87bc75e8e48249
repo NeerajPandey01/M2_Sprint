@@ -1,0 +1,21 @@
+package com.profileservice.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.profileservice.app.repository.ProfileRepository;
+
+public class CustomUserDetailsService implements UserDetailsService {
+
+	 @Autowired
+	    private ProfileRepository profileRepository;
+
+	    @Override
+	    public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException {
+	        return profileRepository.findByEmailId(emailId)
+	                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + emailId));
+	    }
+
+}

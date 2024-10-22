@@ -1,0 +1,238 @@
+package com.orderservice.app.service;
+
+import com.orderservice.app.entity.Order;
+import com.orderservice.app.repository.OrderRepository;
+import com.orderservice.app.dto.Cart;
+import com.orderservice.app.dto.UserProfile;
+import com.orderservice.app.feign.CartClient;
+import com.orderservice.app.feign.ProductClient;
+import com.orderservice.app.feign.ProfileClient;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+class OrderServiceImplTest {
+
+    @Mock
+    private OrderRepository orderRepository;
+
+    @Mock
+    private ProductClient productClient;
+
+    @Mock
+    private ProfileClient profileClient;
+
+    @Mock
+    private CartClient cartClient;
+
+    @InjectMocks
+    private OrderServiceImpl orderService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    @DisplayName("Test case - Place order successfully")
+    void testPlaceOrderSuccess() {
+        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1);
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+        Cart cart = new Cart(1, Arrays.asList());
+
+        when(profileClient.getProfileById(order.getCustomerId())).thenReturn(ResponseEntity.ok(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.ok(cart));
+        when(cartClient.deleteCart(order.getCartId())).thenReturn(ResponseEntity.ok().build());
+        when(orderRepository.save(order)).thenReturn(order);
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(order.getAmountPaid(), response.getBody().getAmountPaid());
+        assertEquals("Order Placed", response.getBody().getOrderStatus());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with invalid customer ID")
+    void testPlaceOrderInvalidCustomer() {
+        Order order = new Order(1, 100.0, 999, "Cash", new Date(), "Order Placed", 1);
+
+        when(profileClient.getProfileById(order.getCustomerId())).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with invalid cart ID")
+    void testPlaceOrderInvalidCart() {
+        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 999);
+
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+
+        when(profileClient.getProfileById(order.getCustomerId())).thenReturn(ResponseEntity.ok(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Get all orders")
+    void testGetAllOrders() {
+        List<Order> orders = Arrays.asList(
+                new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1),
+                new Order(2, 150.0, 2, "Card", new Date(), "Order Delivered", 2));
+
+        when(orderRepository.findAll()).thenReturn(orders);
+
+        ResponseEntity<List<Order>> response = orderService.getAllOrders();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get orders by customer ID")
+    void testGetOrderByCustomerId() {
+        int customerId = 1;
+        List<Order> orders = Arrays.asList(
+                new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1),
+                new Order(2, 150.0, 1, "Card", new Date(), "Order Delivered", 2));
+
+        when(orderRepository.findByCustomerId(customerId)).thenReturn(orders);
+
+        ResponseEntity<List<Order>> response = orderService.getOrderByCustomerId(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Change order status")
+    void testChangeOrderStatus() {
+        int orderId = 1;
+        String newStatus = "Order Delivered";
+        Order order = new Order(orderId, 100.0, 1, "Cash", new Date(), newStatus, 1);
+
+        when(orderRepository.findById(orderId)).thenReturn(java.util.Optional.of(order));
+        when(orderRepository.save(order)).thenReturn(order);
+
+        ResponseEntity<Order> response = orderService.changeOrderStatus(newStatus, orderId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(newStatus, response.getBody().getOrderStatus());
+    }
+
+    @Test
+    @DisplayName("Test case - Delete order")
+    void testDeleteOrder() {
+        int orderId = 1;
+
+        when(orderRepository.existsById(orderId)).thenReturn(true);
+
+        ResponseEntity<String> response = orderService.deleteOrder(orderId);
+
+        verify(orderRepository, times(1)).deleteById(orderId);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Order deleted successfully", response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with empty cart")
+    void testPlaceOrderEmptyCart() {
+        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1);
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+        Cart cart = new Cart(1, Arrays.asList());
+
+        when(profileClient.getProfileById(order.getCustomerId())).thenReturn(ResponseEntity.ok(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.ok(cart));
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with negative amount paid")
+    void testPlaceOrderNegativeAmountPaid() {
+        Order order = new Order(1, -100.0, 1, "Cash", new Date(), "Order Placed", 1);
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+        Cart cart = new Cart(1, Arrays.asList());
+
+        when(profileClient.getProfileById(order.getCustomerId())).thenReturn(ResponseEntity.ok(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.ok(cart));
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Get all orders when none exist")
+    void testGetAllOrdersEmpty() {
+        when(orderRepository.findAll()).thenReturn(Arrays.asList());
+
+        ResponseEntity<List<Order>> response = orderService.getAllOrders();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(0, response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get orders by non-existent customer ID")
+    void testGetOrderByNonExistentCustomerId() {
+        int customerId = 999;
+
+        when(orderRepository.findByCustomerId(customerId)).thenReturn(Arrays.asList());
+
+        ResponseEntity<List<Order>> response = orderService.getOrderByCustomerId(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(0, response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Change order status with invalid order ID")
+    void testChangeOrderStatusInvalidOrderId() {
+        int orderId = 999;
+        String newStatus = "Order Delivered";
+
+        when(orderRepository.findById(orderId)).thenReturn(java.util.Optional.empty());
+
+        ResponseEntity<Order> response = orderService.changeOrderStatus(newStatus, orderId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Delete non-existent order")
+    void testDeleteNonExistentOrder() {
+        int orderId = 999;
+
+        when(orderRepository.existsById(orderId)).thenReturn(false);
+
+        ResponseEntity<String> response = orderService.deleteOrder(orderId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+}

@@ -1,0 +1,5 @@
+package com.orderservice.app.config;
+
+public class FeignClientConfig {
+
+}

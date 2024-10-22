@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.gateway.app&apos; to &apos;ProfileService/src/main/java/com.profileservice.app.entity&apos;&#x0D;&#x0A;- Original project: &apos;ApiGateway&apos;&#x0D;&#x0A;- Destination element: &apos;ProfileService/src/main/java/com.profileservice.app.entity&apos;&#x0D;&#x0A;- Original element: &apos;ApiGateway/src/main/java/com.gateway.app&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=ProfileService/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.profileservice.app.entity" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.gateway.app" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1718942600573" version="1.0"/>
+</session>

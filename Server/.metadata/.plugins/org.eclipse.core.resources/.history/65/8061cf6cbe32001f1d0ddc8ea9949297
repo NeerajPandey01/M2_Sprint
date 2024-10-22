@@ -1,0 +1,14 @@
+package com.profileservice.app.entity;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class UserProfileTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

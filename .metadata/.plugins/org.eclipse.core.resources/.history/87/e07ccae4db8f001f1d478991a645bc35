@@ -1,0 +1,99 @@
+package com.profileservice.app.controller;
+
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.service.ProfileService;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+
+public class ProfileControllerTest {
+
+    private MockMvc mockMvc;
+
+    @Mock
+    private ProfileService profileService;
+
+    @InjectMocks
+    private ProfileController profileController;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        this.mockMvc = MockMvcBuilders.standaloneSetup(profileController).build();
+    }
+
+    @Test
+    public void testGetProfileById() throws Exception {
+        UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        when(profileService.getProfileById(1)).thenReturn(ResponseEntity.ok(userProfile));
+
+        mockMvc.perform(get("/profiles/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.profileId").value(1))
+            .andExpect(jsonPath("$.fullName").value("John Doe"))
+            .andExpect(jsonPath("$.emailId").value("john.doe@example.com"));
+    }
+
+    @Test
+    public void testGetProfileByEmailId() throws Exception {
+        UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        when(profileService.getProfileByEmailId("john.doe@example.com")).thenReturn(userProfile);
+
+        mockMvc.perform(get("/profiles/email/john.doe@example.com"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.profileId").value(1))
+            .andExpect(jsonPath("$.fullName").value("John Doe"))
+            .andExpect(jsonPath("$.emailId").value("john.doe@example.com"));
+    }
+
+    @Test
+    public void testGetAllProfiles() throws Exception {
+        UserProfile userProfile1 = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        UserProfile userProfile2 = new UserProfile(2, "Jane Smith", "http://example.com/image2.jpg", 
+            "jane.smith@example.com", 1234567891L, "About Jane", new Date(90, 5, 15), 
+            "Female", "User", "password456", List.of());
+        List<UserProfile> userProfiles = Arrays.asList(userProfile1, userProfile2);
+        when(profileService.getAllProfiles()).thenReturn(ResponseEntity.ok(userProfiles));
+
+        mockMvc.perform(get("/profiles"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$[0].profileId").value(1))
+            .andExpect(jsonPath("$[0].fullName").value("John Doe"))
+            .andExpect(jsonPath("$[0].emailId").value("john.doe@example.com"))
+            .andExpect(jsonPath("$[1].profileId").value(2))
+            .andExpect(jsonPath("$[1].fullName").value("Jane Smith"))
+            .andExpect(jsonPath("$[1].emailId").value("jane.smith@example.com"));
+    }
+
+    @Test
+    public void testDeleteProfile() throws Exception {
+        when(profileService.deleteProfile(1)).thenReturn(ResponseEntity.ok("Profile deleted successfully"));
+
+        mockMvc.perform(delete("/profiles/1"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Profile deleted successfully"));
+    }
+
+}

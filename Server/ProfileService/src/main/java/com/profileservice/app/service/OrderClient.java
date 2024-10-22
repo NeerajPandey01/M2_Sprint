@@ -1,0 +1,17 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.profileservice.app.entity.Order;
+
+
+@FeignClient(name = "order-service", url = "http://localhost:8086")
+public interface OrderClient {
+	@GetMapping("orders/customer/{customerId}")
+	public ResponseEntity<List<Order>> getOrderByCustomerId(@PathVariable int customerId);
+}

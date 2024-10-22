@@ -1,0 +1,80 @@
+package com.profileservice.app.entity;
+
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.validator.constraints.URL;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@AllArgsConstructor
+@Data
+@NoArgsConstructor
+public class UserProfile {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int profileId;
+
+	@NotBlank(message = "Full name is required")
+	private String fullName;
+	
+	@URL(message = "Image must be a valid URL")
+	@Column(length=16777216)
+	private String image;
+
+	@Email(message = "Email should be valid")
+	@NotBlank(message = "Email is required")
+	@Column(unique = true)
+	private String emailId;
+
+	@NotNull(message = "Mobile number is required")
+	@Digits(integer = 10, fraction = 0, message = "Mobile number should be a valid 10-digit number")
+	@Min(value = 1000000000L, message = "Mobile number should be a valid 10-digit number")
+	@Max(value = 9999999999L, message = "Mobile number should be a valid 10-digit number")
+	private Long mobileNumber;
+
+	@Column(length=16777216)
+	private String about;
+
+	@Past(message = "Date of birth must be in the past")
+	private Date dateOfBirth;
+    
+	
+ 
+	
+	@NotBlank(message = "Gender is required")
+	private String gender;
+
+	@NotBlank(message = "Role is required")
+	private String role;
+
+	@NotBlank(message = "Password is required")
+	private String password;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_profile_id")
+	@JsonManagedReference
+	private List<Address> addresses;
+}

@@ -1,0 +1,99 @@
+package com.orderservice.app.service;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.orderservice.app.dao.OrderDao;
+import com.orderservice.app.dao.OrderDaoImpl;
+import com.orderservice.app.dto.UserProfile;
+import com.orderservice.app.entity.Cart;
+import com.orderservice.app.entity.Order;
+import com.orderservice.app.entity.Product;
+import com.orderservice.app.feign.CartClient;
+import com.orderservice.app.feign.ProductClient;
+import com.orderservice.app.feign.ProfileClient;
+import com.orderservice.app.repository.ProfileRepository;
+
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
+
+@Service
+@Transactional
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	OrderDao orderDao;
+	
+	
+	@Autowired
+    private ProductClient productClient;
+    
+    @Autowired
+    private ProfileClient profileClient;
+    
+    @Autowired
+    private CartClient cartClient;
+
+    @Autowired
+    ProfileRepository profileRepository;
+    @Override
+    public ResponseEntity<Order> placeOrder(Order order) {
+       // Product product = productClient.getProductById(order.getProductId());
+    	
+    	Optional< UserProfile> userProfile = profileRepository.findById(order.getCustomerId());
+        if (userProfile.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        if(cartClient.getCart(order.getCartId())==null)
+        {
+        	return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        double orderTotal = cartClient.getCart(order.getCartId()).getBody().getTotalPrice();
+        order.setAmountPaid(orderTotal);
+        order.setOrderStatus("Order Placed");
+        cartClient.deleteCart(order.getCartId());
+
+        // Logic to place order
+        return orderDao.placeOrder(order);
+    }
+	
+	
+	@Override
+	public ResponseEntity<List<Order>> getAllOrders() {
+		// TODO Auto-generated method stub
+		return orderDao.getAllOrders();
+	}
+
+	@Override
+	public ResponseEntity<List<Order>> getOrderByCustomerId(int customerId) {
+		// TODO Auto-generated method stub
+		return orderDao.getOrderByCustomerId(customerId);
+	}
+
+//	@Override
+//	public ResponseEntity<Order> placeOrder(@Valid Order order) {
+//		// TODO Auto-generated method stub
+//		return orderDao.placeOrder(order);
+//	}
+
+	@Override
+	public ResponseEntity<Order> changeOrderStatus(String orderStatus, int orderId) {
+		// TODO Auto-generated method stub
+		return orderDao.changeOrderStatus(orderStatus,orderId);
+	}
+
+	@Override
+	public ResponseEntity<String> deleteOrder(int orderId) {
+		// TODO Auto-generated method stub
+		return orderDao.deleteOrder(orderId);
+	}
+
+	
+
+}

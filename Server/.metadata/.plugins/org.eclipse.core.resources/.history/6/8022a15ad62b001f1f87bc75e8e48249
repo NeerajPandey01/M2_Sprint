@@ -1,0 +1,90 @@
+package com.cartservice.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.cartservice.app.dao.CartDao;
+import com.cartservice.app.dto.ProductDTO;
+import com.cartservice.app.entity.Cart;
+import com.cartservice.app.entity.Items;
+import com.cartservice.app.entity.Product;
+import com.cartservice.app.feign.ProductFeignClient;
+//import com.cartservice.app.feign.ProductServiceFeignClient;
+import com.cartservice.app.repository.CartRepository;
+
+import jakarta.validation.Valid;
+
+@Service
+public class CartServiceImpl implements CartService{
+
+	@Autowired
+	private CartDao cartDao;
+	  @Autowired
+	    private CartRepository cartRepository;
+
+	    @Autowired
+	    private ProductFeignClient productFeignClient;
+
+//	    @Override
+//	    public Cart addCart(Cart cart) {
+//	        cart.getItems().forEach(item -> {
+//	            Product product = productFeignClient.getProduct(item.getProductId());
+//	            item.setPrice(product.getPrice());
+//	        });
+//	        return cartDao.addCart(cart);
+//	    }
+	
+	
+	@Override
+	public ResponseEntity<Cart> getcartById(int cartId) {
+		// TODO Auto-generated method stub
+		return cartDao.getcartById(cartId);
+	}
+
+	@Override
+	public ResponseEntity<Cart> updateCart(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		cart.setTotalPrice(cartTotal(cart));
+		return cartDao.updateCart(cart);
+	}
+
+	@Override
+	public ResponseEntity<List<Cart>> getallcarts() {
+		// TODO Auto-generated method stub
+		return cartDao.getallcarts();
+	}
+
+//	@Override
+	public ResponseEntity<Cart> addCart(@Valid Cart cart) {
+//		// TODO Auto-generated method stub
+	 cart.getItems().forEach(item -> {
+         Product product = productFeignClient.getProduct(item.getProductId());
+        item.setPrice(product.getPrice());
+     });
+	
+	
+		cart.setTotalPrice(cartTotal(cart));
+		return cartDao.addCart(cart);
+	}
+
+	@Override
+	public double cartTotal(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		double sum=0;
+		for(Items i: cart.getItems())
+		{
+			sum+=(i.getPrice()*i.getQuantity());
+		}
+		return sum;
+	}
+
+	@Override
+	public ResponseEntity<String> deleteCart(int cartId) {
+		// TODO Auto-generated method stub
+		return cartDao.deleteCart(cartId);
+	}
+
+}

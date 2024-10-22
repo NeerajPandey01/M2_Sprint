@@ -1,0 +1,41 @@
+package com.profileservice.app.dao;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.profileservice.app.entity.UserProfile;
+
+public class ProfileServiceDaoImpl implements ProfileServiceDao{
+
+	@Override
+	public ResponseEntity<UserProfile> createProfile(UserProfile profile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<List<UserProfile>> getAllProfiles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<String> deleteProfile(int profileId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> updateProfile(int profileId, UserProfile profile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> getProfileById(int profileId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

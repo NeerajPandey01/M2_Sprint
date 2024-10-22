@@ -1,0 +1,5 @@
+package com.profileservice.app.entity;
+
+public class AuthRequest {
+
+}

@@ -1,0 +1,21 @@
+package com.profileservice.app.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Items {
+
+	private int itemId;
+
+	private double price;
+
+	private int quantity;
+
+	private Cart cart;
+
+	private int productId;
+}

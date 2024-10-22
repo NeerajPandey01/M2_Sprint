@@ -1,0 +1,116 @@
+package com.profileservice.app.service;
+
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.exception.UserProfileNotFoundException;
+import com.profileservice.app.repository.ProfileRepository;
+import com.profileservice.app.security.JwtRequest;
+import com.profileservice.app.security.JwtResponse;
+import com.profileservice.app.security.JwtTokenUtil;
+
+public class ProfileServiceImplTest {
+
+	@Mock
+	private ProfileRepository profileRepository;
+
+
+
+
+
+	@Mock
+	private JwtTokenUtil helper;
+
+	@InjectMocks
+	private ProfileServiceImpl profileService;
+
+
+	@BeforeEach
+	public void setUp() {
+		MockitoAnnotations.openMocks(this);
+	}
+
+	@Test
+	public void testCreateProfile() {
+		UserProfile userProfile = new UserProfile(0, "John Doe", "http://example.com/image.jpg", "john.doe@example.com",
+				1234567890L, "About John", new Date(95, 1, 1), "Male", "Admin", "password123", List.of());
+
+		when(profileRepository.findByEmailId("john.doe@example.com")).thenReturn(null);
+		when(profileRepository.save(any(UserProfile.class))).thenReturn(userProfile);
+
+		ResponseEntity<String> response = profileService.createProfile(userProfile);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+	}
+
+	@Test
+	public void testGetAllProfiles() {
+		UserProfile userProfile1 = new UserProfile(1, "John Doe", "http://example.com/image.jpg",
+				"john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), "Male", "Admin", "password123",
+				List.of());
+		UserProfile userProfile2 = new UserProfile(2, "Jane Smith", "http://example.com/image2.jpg",
+				"jane.smith@example.com", 1234567891L, "About Jane", new Date(90, 5, 15), "Female", "User",
+				"password456", List.of());
+
+		when(profileRepository.findAll()).thenReturn(List.of(userProfile1, userProfile2));
+
+		ResponseEntity<List<UserProfile>> response = profileService.getAllProfiles();
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+		assertEquals(2, response.getBody().size());
+	}
+
+
+
+
+
+	@Test
+	public void testGetProfileById() {
+		UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", "john.doe@example.com",
+				1234567890L, "About John", new Date(95, 1, 1), "Male", "Admin", "password123", List.of());
+
+		when(profileRepository.findById(1)).thenReturn(Optional.of(userProfile));
+
+		ResponseEntity<UserProfile> response = profileService.getProfileById(1);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+		assertEquals("John Doe", response.getBody().getFullName());
+	}
+
+
+
+	@Test
+	public void testGetProfileByEmailId() {
+		UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", "john.doe@example.com",
+				1234567890L, "About John", new Date(95, 1, 1), "Male", "Admin", "password123", List.of());
+
+		when(profileRepository.findByEmailId("john.doe@example.com")).thenReturn(userProfile);
+
+		UserProfile response = profileService.getProfileByEmailId("john.doe@example.com");
+		assertNotNull(response);
+		assertEquals("John Doe", response.getFullName());
+	}
+
+
+	
+}

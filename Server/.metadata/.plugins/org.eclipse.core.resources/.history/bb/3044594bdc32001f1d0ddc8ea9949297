@@ -1,0 +1,174 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.exception.UserProfileNotFoundException;
+import com.profileservice.app.repository.ProfileRepository;
+import com.profileservice.app.security.JwtRequest;
+import com.profileservice.app.security.JwtResponse;
+import com.profileservice.app.security.JwtTokenUtil;
+
+import jakarta.validation.Valid;
+
+@Service
+public class ProfileServiceImpl implements ProfileService {
+
+	
+
+	@Autowired
+	private OrderClient orderClient;
+
+	@Autowired
+	private CartClient cartClient;
+
+	@Autowired
+	private ProfileRepository profileRepository;
+
+	@Autowired
+	private UserDetailsService userDetailsService;
+
+	@Autowired
+	private AuthenticationManager manager;
+
+	@Autowired
+	private JwtTokenUtil helper;
+	
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+
+	@Override
+	public ResponseEntity<UserProfile> createProfile(@Valid UserProfile profile) {
+		// TODO Auto-generated method stub
+		if (profileRepository.findByEmailId(profile.getEmailId()) != null)
+			throw new UserProfileNotFoundException("User already exists");
+		// TODO Auto-generated method stub
+		try {
+
+			profile.setPassword(encoder.encode(profile.getPassword()));
+			return new ResponseEntity<>(profileRepository.save(profile), HttpStatusCode.valueOf(200));
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Override
+	public ResponseEntity<List<UserProfile>> getAllProfiles() {
+		// TODO Auto-generated method stub
+		try {
+			// TODO Auto-generated method stub
+			return new ResponseEntity<>(profileRepository.findAll(), HttpStatusCode.valueOf(200));
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Override
+	public ResponseEntity<String> deleteProfile(int profileId) {
+		// TODO Auto-generated method stub
+		java.util.Optional<UserProfile> op = profileRepository.findById(profileId);
+		if (!op.isEmpty()) {
+			profileRepository.delete(op.get());
+			return new ResponseEntity<>("Profile deleted successfully", HttpStatus.OK);
+		} else {
+			throw new UserProfileNotFoundException("Profile ID not present");
+		}
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> updateProfile(int profileId, @Valid UserProfile profile) {
+		// TODO Auto-generated method stub
+		try {
+			Optional<UserProfile> existingProfile = profileRepository.findById(profileId);
+			if (existingProfile.isPresent()) {
+				profile.setProfileId(profileId);
+				profile.setPassword(encoder.encode(profile.getPassword()));
+				UserProfile updatedProfile = profileRepository.save(profile);
+				return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
+			} else {
+				throw new UserProfileNotFoundException("Profile ID not present");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw new UserProfileNotFoundException("Email is already in use");
+		}
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> getProfileById(int profileId) {
+		// TODO Auto-generated method stub
+		Optional<UserProfile> op = profileRepository.findById(profileId);
+		if (op.isEmpty()) {
+			throw new UserProfileNotFoundException("Profile ID not present");
+		}
+		return new ResponseEntity<>(profileRepository.findById(profileId).get(), HttpStatusCode.valueOf(200));
+
+	}
+
+	@Override
+	public ResponseEntity<List<Cart>> getCart(int customerId) {
+		// TODO Auto-generated method stub
+		if (profileRepository.findById(customerId).isEmpty())
+			throw new UserProfileNotFoundException("Profile does not exists");
+		return cartClient.getAllByCustomerId(customerId);
+	}
+
+	@Override
+	public ResponseEntity<List<Order>> getOrders(int customerId) {
+		// TODO Auto-generated method stub
+		if (profileRepository.findById(customerId).isEmpty())
+			throw new UserProfileNotFoundException("Profile does not exists");
+		return orderClient.getOrderByCustomerId(customerId);
+	}
+
+	@Override
+	public UserProfile getProfileByEmailId(String emailId) {
+		// TODO Auto-generated method stub
+		UserProfile userProfiles = profileRepository.findByEmailId(emailId);
+		if (userProfiles == null) {
+			throw new UserProfileNotFoundException("User already exists");
+		}
+		return userProfiles;
+	}
+
+	public ResponseEntity<JwtResponse> login(JwtRequest request) {
+
+		this.doAuthenticate(request.getEmail(), request.getPassword());
+
+		UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
+		String token = this.helper.generateToken(userDetails);
+
+		JwtResponse response = JwtResponse.builder().jwtToken(token).build();
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	private void doAuthenticate(String email, String password) {
+
+		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
+		try {
+			manager.authenticate(authentication);
+
+		} catch (BadCredentialsException e) {
+			throw new BadCredentialsException(" Invalid Username or Password  !!");
+		}
+
+	}
+
+}

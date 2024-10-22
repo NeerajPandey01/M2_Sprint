@@ -1,0 +1,82 @@
+package com.cartservice.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.cartservice.app.dao.CartDao;
+import com.cartservice.app.dto.ProductDTO;
+import com.cartservice.app.entity.Cart;
+import com.cartservice.app.entity.Items;
+//import com.cartservice.app.feign.ProductServiceFeignClient;
+
+import jakarta.validation.Valid;
+
+@Service
+public class CartServiceImpl implements CartService{
+
+	@Autowired
+	private CartDao cartDao;
+	
+//	//added
+//	
+//	 @Autowired
+//	 private ProductServiceFeignClient productServiceFeignClient;
+//
+//	    public ProductDTO getProductById(int productId) {
+//	        return productServiceFeignClient.getProductById(productId);
+//	    }
+//
+//	    public List<ProductDTO> getAllProducts() {
+//	        return productServiceFeignClient.getAllProducts();
+//	    }
+//	
+//	//added
+	
+	
+	@Override
+	public ResponseEntity<Cart> getcartById(int cartId) {
+		// TODO Auto-generated method stub
+		return cartDao.getcartById(cartId);
+	}
+
+	@Override
+	public ResponseEntity<Cart> updateCart(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		cart.setTotalPrice(cartTotal(cart));
+		return cartDao.updateCart(cart);
+	}
+
+	@Override
+	public ResponseEntity<List<Cart>> getallcarts() {
+		// TODO Auto-generated method stub
+		return cartDao.getallcarts();
+	}
+
+	@Override
+	public ResponseEntity<Cart> addCart(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		cart.setTotalPrice(cartTotal(cart));
+		return cartDao.addCart(cart);
+	}
+
+	@Override
+	public double cartTotal(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		double sum=0;
+		for(Items i: cart.getItems())
+		{
+			sum+=(i.getPrice()*i.getQuantity());
+		}
+		return sum;
+	}
+
+	@Override
+	public ResponseEntity<String> deleteCart(int cartId) {
+		// TODO Auto-generated method stub
+		return cartDao.deleteCart(cartId);
+	}
+
+}

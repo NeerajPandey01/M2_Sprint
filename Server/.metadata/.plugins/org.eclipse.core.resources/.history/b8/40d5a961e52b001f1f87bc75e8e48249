@@ -1,0 +1,16 @@
+package com.cartservice.app.dto;
+
+import lombok.Data;
+
+@Data
+public class ProductDTO {
+	 private int productId;
+	    private String productType;
+	    private String productName;
+	    private String category;
+	    private String image;
+	    private double price;
+	    private String description;
+	    private double discount;
+}
+

@@ -1,0 +1,5 @@
+package com.orderservice.app.feign;
+
+public interface CartClient {
+
+}

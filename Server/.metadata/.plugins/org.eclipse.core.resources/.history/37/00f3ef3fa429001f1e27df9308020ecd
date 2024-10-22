@@ -1,0 +1,53 @@
+package com.profileservice.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.app.repository.ProfileRepository;
+import com.profileservice.app.dao.ProfileServiceDao;
+import com.profileservice.app.entity.UserProfile;
+
+@Service
+public class ProfileServiceImpl implements ProfileService {
+    
+	@Autowired
+    private ProfileServiceDao profileServiceDao;
+
+    @Override
+    public UserProfile createProfile(UserProfile profile) {
+       return profileServiceDao.createProfile(profile);
+    }
+
+    @Override
+    public UserProfile updateProfile(Long id, UserProfile profile) {
+        return 
+    }
+
+    @Override
+    public UserProfile getProfileById(Long id) {
+        return profileRepository.findById(id).orElseThrow(() -> new RuntimeException("Profile not found"));
+    }
+
+    @Override
+    public List<UserProfile> getAllProfiles() {
+        return profileRepository.findAll();
+    }
+
+    @Override
+    public void deleteProfile(Long id) {
+        profileRepository.deleteById(id);
+    }
+
+//	@Override
+//	public UserProfile createProfile(UserProfile profile) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+//	@Override
+//	public UserProfile updateProfile(Long id, UserProfile profile) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+}
+

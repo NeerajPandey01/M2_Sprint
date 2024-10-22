@@ -1,0 +1,63 @@
+package com.profileservice.app.entity;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+
+public class AddressTest {
+
+    private Validator validator;
+
+    @BeforeEach
+    public void setUp() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+    }
+
+    @Test
+    public void testValidAddress() {
+        Address address = new Address(1, "123 Main St", "Springfield", "IL", "62704");
+
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertTrue(violations.isEmpty());
+    }
+
+    @Test
+    public void testBlankStreet() {
+        Address address = new Address(1, "", "Springfield", "IL", "62704");
+
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+    }
+
+    @Test
+    public void testBlankCity() {
+        Address address = new Address(1, "123 Main St", "", "IL", "62704");
+
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+    }
+
+    @Test
+    public void testBlankState() {
+        Address address = new Address(1, "123 Main St", "Springfield", "", "62704");
+
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+    }
+
+    @Test
+    public void testBlankZipCode() {
+        Address address = new Address(1, "123 Main St", "Springfield", "IL", "");
+
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+    }
+}

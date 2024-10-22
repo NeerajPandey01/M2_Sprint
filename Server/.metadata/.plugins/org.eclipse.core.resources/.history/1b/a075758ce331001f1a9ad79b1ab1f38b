@@ -1,0 +1,14 @@
+package com.cartservice.app.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cartservice.app.feign.Product;
+
+@FeignClient(name = "PRODUCTSERVICE", url = "http://localhost:8085")
+public interface ProductFeignClient {
+    @GetMapping("/products/{productId}")
+    ResponseEntity<Product> getProductById(@PathVariable("productId") int productId);
+}

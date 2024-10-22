@@ -1,0 +1,3 @@
+spring.application.name=ApiGateway-2
+server.port=8099
+

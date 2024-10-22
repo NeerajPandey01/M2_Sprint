@@ -1,0 +1,8 @@
+package com.profileservice.app.dao;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class AddressDaoImpl {
+
+}

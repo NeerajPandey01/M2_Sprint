@@ -1,0 +1,19 @@
+package com.orderservice.app.dao;
+
+import org.springframework.http.ResponseEntity;
+
+import com.orderservice.app.entity.Order;
+
+public interface OrderDao {
+
+	ResponseEntity<Order> getAllOrders();
+
+	ResponseEntity<String> deleteOrder(int orderId);
+
+	ResponseEntity<Order> changeOrderStatus(String orderStatus, int orderId);
+
+	ResponseEntity<Order> placeOrder(Order order);
+
+	ResponseEntity<Order> getOrderByCustomerId(int customerId);
+
+}

@@ -1,0 +1,5 @@
+package com.hms.payment_service.feign;
+
+public interface OrderFeignClient {
+
+}

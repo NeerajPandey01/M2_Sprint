@@ -1,0 +1,9 @@
+package com.profileservice.app.dao;
+
+import com.profileservice.app.entity.UserProfile;
+
+public interface ProfileServiceDao {
+
+	UserProfile createProfile(UserProfile profile);
+
+}

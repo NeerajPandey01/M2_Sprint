@@ -1,0 +1,12 @@
+package com.orderservice.app.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class OrderServiceController {
+	
+	@GetMapping("hello")
+	public String get() {
+		return "HEllo";
+	}
+
+}

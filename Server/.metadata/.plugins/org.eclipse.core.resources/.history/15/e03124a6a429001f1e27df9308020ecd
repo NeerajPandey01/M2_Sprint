@@ -1,0 +1,51 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.app.repository.ProfileRepository;
+import com.example.app.service.ProfileService;
+import com.profileservice.app.dao.ProfileServiceDao;
+import com.profileservice.app.entity.UserProfile;
+
+@Service
+public class ProfileServiceImpl implements ProfileService {
+    
+	@Autowired
+    private ProfileServiceDao profileServiceDao;
+
+	public ResponseEntity<ProfileService> createProfile(UserProfile profile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResponseEntity<ProfileService> updateProfile(Long id, UserProfile profile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResponseEntity<ProfileService> getProfileById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserProfile> getAllProfiles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteProfile(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+   
+}
+

@@ -1,0 +1,8 @@
+package com.fare.service;
+
+import com.razorpay.RazorpayException;
+
+public interface PaymentReceiptService {
+		
+		public String createOrder(double amount) throws  RazorpayException;
+}

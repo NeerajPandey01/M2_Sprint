@@ -1,0 +1,234 @@
+package com.orderservice.app.service;
+
+import com.orderservice.app.dto.Cart;
+import com.orderservice.app.dto.UserProfile;
+import com.orderservice.app.entity.Order;
+import com.orderservice.app.exception.OrderNotFoundException;
+import com.orderservice.app.feign.CartClient;
+import com.orderservice.app.feign.ProductClient;
+import com.orderservice.app.feign.ProfileClient;
+import com.orderservice.app.repository.OrderRepository;
+import com.orderservice.app.repository.ProfileRepository;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class OrderServiceImplTest {
+
+    @Mock
+    private OrderRepository orderRepository;
+
+    @Mock
+    private ProductClient productClient;
+
+    @Mock
+    private ProfileClient profileClient;
+
+    @Mock
+    private CartClient cartClient;
+
+    @Mock
+    private ProfileRepository profileRepository;
+
+    @InjectMocks
+    private OrderServiceImpl orderService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+//    @Test
+//    @DisplayName("Test case - Place order successfully")
+//    void testPlaceOrderSuccess() {
+//        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1);
+//        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+//                "About John", new Date(), "Male", "Customer", "password", null);
+//        Cart cart = new Cart(1, Arrays.asList(), 100.0);
+//
+//        when(profileRepository.findById(order.getCustomerId())).thenReturn(Optional.of(userProfile));
+//        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.ok(cart));
+//        when(cartClient.deleteCart(order.getCartId())).thenReturn(ResponseEntity.ok().build());
+//        when(orderRepository.save(order)).thenReturn(order);
+//
+//        ResponseEntity<Order> response = orderService.placeOrder(order);
+//
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//        assertEquals(order.getAmountPaid(), response.getBody().getAmountPaid());
+//        assertEquals("Order Placed", response.getBody().getOrderStatus());
+//    }
+
+    @Test
+    @DisplayName("Test case - Place order with unauthorized user")
+    void testPlaceOrderUnauthorizedUser() {
+        Order order = new Order(1, 100.0, 999, "Cash", new Date(), "Order Placed", 1);
+
+        when(profileRepository.findById(order.getCustomerId())).thenReturn(Optional.empty());
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with invalid cart ID")
+    void testPlaceOrderInvalidCart() {
+        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 999);
+
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+
+        when(profileRepository.findById(order.getCustomerId())).thenReturn(Optional.of(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(null);
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Place order with empty cart")
+    void testPlaceOrderEmptyCart() {
+        Order order = new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1);
+        UserProfile userProfile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+        Cart cart = new Cart(1, Arrays.asList(), 0.0);
+
+        when(profileRepository.findById(order.getCustomerId())).thenReturn(Optional.of(userProfile));
+        when(cartClient.getCart(order.getCartId())).thenReturn(ResponseEntity.ok(cart));
+
+        ResponseEntity<Order> response = orderService.placeOrder(order);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Test case - Get all orders")
+    void testGetAllOrders() {
+        List<Order> orders = Arrays.asList(
+                new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1),
+                new Order(2, 150.0, 2, "Card", new Date(), "Order Delivered", 2));
+
+        when(orderRepository.findAll()).thenReturn(orders);
+
+        ResponseEntity<List<Order>> response = orderService.getAllOrders();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get all orders when none exist")
+    void testGetAllOrdersEmpty() {
+        when(orderRepository.findAll()).thenReturn(Arrays.asList());
+
+        Exception exception = assertThrows(OrderNotFoundException.class, () -> {
+            orderService.getAllOrders();
+        });
+
+        assertEquals("No any data present", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Get orders by customer ID")
+    void testGetOrderByCustomerId() {
+        int customerId = 1;
+        List<Order> orders = Arrays.asList(
+                new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1),
+                new Order(2, 150.0, 1, "Card", new Date(), "Order Delivered", 2));
+
+        when(orderRepository.findByCustomerId(customerId)).thenReturn(orders);
+
+        ResponseEntity<List<Order>> response = orderService.getOrderByCustomerId(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get orders by non-existent customer ID")
+    void testGetOrderByNonExistentCustomerId() {
+        int customerId = 999;
+
+        when(orderRepository.findByCustomerId(customerId)).thenReturn(Arrays.asList());
+
+        Exception exception = assertThrows(OrderNotFoundException.class, () -> {
+            orderService.getOrderByCustomerId(customerId);
+        });
+
+        assertEquals("No orders!! Shop !!", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Change order status")
+    void testChangeOrderStatus() {
+        int orderId = 1;
+        String newStatus = "Order Delivered";
+        Order order = new Order(orderId, 100.0, 1, "Cash", new Date(), newStatus, 1);
+
+        when(orderRepository.findById(orderId)).thenReturn(Optional.of(order));
+        when(orderRepository.save(order)).thenReturn(order);
+
+        ResponseEntity<Order> response = orderService.changeOrderStatus(newStatus, orderId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(newStatus, response.getBody().getOrderStatus());
+    }
+
+    @Test
+    @DisplayName("Test case - Change order status with invalid order ID")
+    void testChangeOrderStatusInvalidOrderId() {
+        int orderId = 999;
+        String newStatus = "Order Delivered";
+
+        when(orderRepository.findById(orderId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(OrderNotFoundException.class, () -> {
+            orderService.changeOrderStatus(newStatus, orderId);
+        });
+
+        assertEquals("Order not found with ID 999", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Delete order")
+    void testDeleteOrder() {
+        int orderId = 1;
+        Order order = new Order(orderId, 100.0, 1, "Cash", new Date(), "Order Placed", 1);
+
+        when(orderRepository.findById(orderId)).thenReturn(Optional.of(order));
+
+        ResponseEntity<String> response = orderService.deleteOrder(orderId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Successfully Deleted", response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Delete non-existent order")
+    void testDeleteNonExistentOrder() {
+        int orderId = 999;
+
+        when(orderRepository.findById(orderId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(OrderNotFoundException.class, () -> {
+            orderService.deleteOrder(orderId);
+        });
+
+        assertEquals("Order not found with ID 999", exception.getMessage());
+    }
+}

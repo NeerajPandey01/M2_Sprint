@@ -1,0 +1,41 @@
+package com.orderservice.app.service;
+
+import org.springframework.http.ResponseEntity;
+
+import com.orderservice.app.entity.Order;
+
+public class OrderServiceImpl implements OrderService {
+
+	@Override
+	public ResponseEntity<Order> getAllOrders() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Order> getOrderByCustomerId(int customerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Order> placeOrder(Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Order> changeOrderStatus(String orderStatus, int orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<String> deleteOrder(int orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

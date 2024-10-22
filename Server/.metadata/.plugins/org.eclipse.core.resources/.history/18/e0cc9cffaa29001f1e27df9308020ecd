@@ -1,0 +1,45 @@
+package com.profileservice.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.app.entity.UserProfile;
+import com.example.app.service.ProfileService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/profiles")
+public class ProfileResource {
+    @Autowired
+    private ProfileService profileService;
+
+    @PostMapping("/add")
+    public ResponseEntity<UserProfile> createProfile(@RequestBody UserProfile profile) {
+        return profileService.createProfile(profile);
+    }
+
+    @PutMapping("/updateprofile/{profileId}")
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable int profileId, @RequestBody UserProfile profile) {
+        return profileService.updateProfile(profileId, profile);
+    }
+
+    @GetMapping("/{profileId}")
+    public ResponseEntity<UserProfile> getProfileById(@PathVariable int profileId) {
+        return profileService.getProfileById(profileId);
+    }
+
+    
+    @GetMapping("getAll")
+    public ResponseEntity< List<UserProfile>> getAllProfiles() {
+        return profileService.getAllProfiles();
+        
+    }
+
+    @DeleteMapping("/delete/{profileId}")
+    public ResponseEntity<String> deleteProfile(@PathVariable int profileId) {
+      return  profileService.deleteProfile(profileId);
+    }
+}
+

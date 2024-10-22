@@ -1,0 +1,5 @@
+package com.profileservice.app.config;
+
+public class SecurityConfig {
+
+}

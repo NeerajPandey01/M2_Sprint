@@ -1,0 +1,61 @@
+package com.app.payment_service.service;
+
+import com.app.payment_service.model.Payment;
+import com.app.payment_service.model.PaymentInfoRequest;
+import com.app.payment_service.repository.PaymentRepository;
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+import com.stripe.param.PaymentIntentCreateParams;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
+
+@Service
+@Transactional
+public class PaymentService {
+
+    @Autowired
+    PaymentRepository paymentRepository;
+
+    @Autowired
+    public PaymentService(PaymentRepository paymentRepository, @Value("${stripe.key.secret}") String secretKey) {
+        this.paymentRepository = paymentRepository;
+        Stripe.apiKey = secretKey;
+    }
+
+    public Map<String, String> createPaymentIntent(PaymentInfoRequest paymentInfoRequest) throws StripeException {
+        PaymentIntentCreateParams params =
+                PaymentIntentCreateParams.builder()
+                        .setAmount((long)paymentInfoRequest.getAmount()*100)
+                        .setCurrency("inr")
+//                        .setReceiptEmail(paymentInfoRequest.getReceiptEmail())
+                        // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
+                        .setAutomaticPaymentMethods(
+                                PaymentIntentCreateParams.AutomaticPaymentMethods
+                                        .builder()
+                                        .setEnabled(true)
+                                        .build()
+                        )
+                        .build();
+
+        // Create a PaymentIntent with the order amount and currency
+        PaymentIntent paymentIntent = PaymentIntent.create(params);
+        Map<String,String> clientSecret=new HashMap<String,String>();
+        clientSecret.put("clientSecret",paymentIntent.getClientSecret());
+        
+        return clientSecret;
+    }
+
+    public ResponseEntity<Payment> stripePayment(Payment payment) {
+        paymentRepository.save(payment);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+}

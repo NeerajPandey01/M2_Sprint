@@ -1,0 +1,93 @@
+package com.profileservice.app.entity;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.Set;
+
+public class AddressTest {
+
+    private Validator validator;
+
+    @BeforeEach
+    public void setUp() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+    }
+
+    @Test
+    public void testValidAddress() {
+        Address address = new Address(1, "123", "Street 1", "Colony 1", "City 1", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertTrue(violations.isEmpty());
+    }
+
+    @Test
+    public void testHouseNumberIsNull() {
+        Address address = new Address(1, null, "Street 1", "Colony 1", "City 1", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("House number is required", violations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void testStreetNameIsBlank() {
+        Address address = new Address(1, "123", "", "Colony 1", "City 1", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("Street name is required", violations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void testColonyNameIsBlank() {
+        Address address = new Address(1, "123", "Street 1", "", "City 1", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("Colony name is required", violations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void testCityIsBlank() {
+        Address address = new Address(1, "123", "Street 1", "Colony 1", "", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("City is required", violations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void testStateIsBlank() {
+        Address address = new Address(1, "123", "Street 1", "Colony 1", "City 1", "", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("State is required", violations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void testPincodeIsBlank() {
+        Address address = new Address(1, "123", "Street 1", "Colony 1", "City 1", "State 1", "", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertFalse(violations.isEmpty());
+        assertEquals(1, violations.size());
+        assertEquals("Pincode is required", violations.iterator().next().getMessage());
+    }
+    
+
+    @Test
+    public void testValidPincode() {
+        Address address = new Address(1, "123", "Street 1", "Colony 1", "City 1", "State 1", "123456", null);
+        Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        assertTrue(violations.isEmpty());
+    }
+}

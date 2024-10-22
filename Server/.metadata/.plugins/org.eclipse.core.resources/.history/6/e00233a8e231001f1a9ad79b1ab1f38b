@@ -1,0 +1,270 @@
+package com.profileservice.app.service;
+
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.exception.UserProfileNotFoundException;
+import com.profileservice.app.feign.Cart;
+import com.profileservice.app.feign.CartClient;
+import com.profileservice.app.feign.Order;
+import com.profileservice.app.feign.OrderClient;
+import com.profileservice.app.repository.ProfileRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class ProfileServiceImplTest {
+
+    @Mock
+    private OrderClient orderClient;
+
+    @Mock
+    private CartClient cartClient;
+
+    @Mock
+    private ProfileRepository profileRepository;
+
+    @InjectMocks
+    private ProfileServiceImpl profileService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    @DisplayName("Test case - Create profile successfully")
+    void testCreateProfileSuccess() {
+        UserProfile profile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+       // when(profileRepository.findByEmailId(profile.getEmailId())).thenReturn(Arrays.asList());
+        when(profileRepository.save(profile)).thenReturn(profile);
+
+        ResponseEntity<UserProfile> response = profileService.createProfile(profile);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to create profile - User already exists")
+    void testCreateProfileUserAlreadyExists() {
+        UserProfile profile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+      //  when(profileRepository.findByEmailId(profile.getEmailId())).thenReturn(Arrays.asList(profile));
+
+        Exception exception = assertThrows(UserProfileNotFoundException.class, () -> {
+            profileService.createProfile(profile);
+        });
+
+        assertEquals("User already exists", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to create profile - Internal server error")
+    void testCreateProfileInternalServerError() {
+        UserProfile profile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+       // when(profileRepository.findByEmailId(profile.getEmailId())).thenReturn(Arrays.asList());
+        when(profileRepository.save(profile)).thenThrow(new RuntimeException());
+
+        ResponseEntity<UserProfile> response = profileService.createProfile(profile);
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        assertNull(response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Get all profiles successfully")
+    void testGetAllProfilesSuccess() {
+        List<UserProfile> profiles = Arrays.asList(
+                new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                        "About John", new java.util.Date(), "Male", "Customer", "password", null),
+                new UserProfile(2, "Jane Doe", "", "jane.doe@example.com", 1234567891L,
+                        "About Jane", new java.util.Date(), "Female", "Customer", "password", null)
+        );
+
+        when(profileRepository.findAll()).thenReturn(profiles);
+
+        ResponseEntity<List<UserProfile>> response = profileService.getAllProfiles();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profiles.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to get all profiles - Internal server error")
+    void testGetAllProfilesInternalServerError() {
+        when(profileRepository.findAll()).thenThrow(new RuntimeException());
+
+        ResponseEntity<List<UserProfile>> response = profileService.getAllProfiles();
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        assertNull(response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Delete profile successfully")
+    void testDeleteProfileSuccess() {
+        int profileId = 1;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.of(profile));
+
+        ResponseEntity<String> response = profileService.deleteProfile(profileId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Profile deleted successfully", response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to delete profile - Profile ID not present")
+    void testDeleteProfileNotFound() {
+        int profileId = 999;
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(UserProfileNotFoundException.class, () -> {
+            profileService.deleteProfile(profileId);
+        });
+
+        assertEquals("Profile ID not present", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Update profile successfully")
+    void testUpdateProfileSuccess() {
+        int profileId = 1;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.of(profile));
+        when(profileRepository.save(profile)).thenReturn(profile);
+
+        ResponseEntity<UserProfile> response = profileService.updateProfile(profileId, profile);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to update profile - Profile ID not present")
+    void testUpdateProfileNotFound() {
+        int profileId = 999;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(UserProfileNotFoundException.class, () -> {
+            profileService.updateProfile(profileId, profile);
+        });
+
+        assertEquals("Profile ID not present", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Get profile by ID successfully")
+    void testGetProfileByIdSuccess() {
+        int profileId = 1;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new java.util.Date(), "Male", "Customer", "password", null);
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.of(profile));
+
+        ResponseEntity<UserProfile> response = profileService.getProfileById(profileId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to get profile by ID - Profile ID not present")
+    void testGetProfileByIdNotFound() {
+        int profileId = 999;
+
+        when(profileRepository.findById(profileId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(UserProfileNotFoundException.class, () -> {
+            profileService.getProfileById(profileId);
+        });
+
+        assertEquals("Profile ID not present", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test case - Get cart by customer ID successfully")
+    void testGetCartSuccess() {
+        int customerId = 1;
+        List<Cart> carts = Arrays.asList(
+                new Cart(1, Arrays.asList()),
+                new Cart(2, Arrays.asList())
+        );
+
+        when(cartClient.getAllByCustomerId(customerId)).thenReturn(new ResponseEntity<>(carts, HttpStatus.OK));
+
+        ResponseEntity<List<Cart>> response = profileService.getCart(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(carts.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get orders by customer ID successfully")
+    void testGetOrdersSuccess() {
+        int customerId = 1;
+        List<Order> orders = Arrays.asList(
+                new Order(1, customerId, 1,  "Order Placed", new java.util.Date(), null,0),
+                new Order(2, customerId, 2,  "Order Shipped", new java.util.Date(), null,0)
+        );
+
+        when(orderClient.getOrderByCustomerId(customerId)).thenReturn(new ResponseEntity<>(orders, HttpStatus.OK));
+
+        ResponseEntity<List<Order>> response = profileService.getOrders(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Test case - Get profile by email ID successfully")
+    void testGetProfileByEmailIdSuccess() {
+        String emailId = "john.doe@example.com";
+        List<UserProfile> profiles = Arrays.asList(
+                new UserProfile(1, "John Doe", "", emailId, 1234567890L,
+                        "About John", new java.util.Date(), "Male", "Customer", "password", null)
+        );
+
+       // when(profileRepository.findByEmailId(emailId)).thenReturn(profiles);
+
+      //  List<UserProfile> response = profileService.getProfileByEmailId(emailId);
+
+        //assertEquals(profiles.size(), response.size());
+    }
+
+    @Test
+    @DisplayName("Test case - Fail to get profile by email ID - User not found")
+    void testGetProfileByEmailIdNotFound() {
+        String emailId = "nonexistent@example.com";
+
+       // when(profileRepository.findByEmailId(emailId)).thenReturn(Arrays.asList());
+
+        Exception exception = assertThrows(UserProfileNotFoundException.class, () -> {
+            profileService.getProfileByEmailId(emailId);
+        });
+
+        assertEquals("User already exists", exception.getMessage());
+    }
+}

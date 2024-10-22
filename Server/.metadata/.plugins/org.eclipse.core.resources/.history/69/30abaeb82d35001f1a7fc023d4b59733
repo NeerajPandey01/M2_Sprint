@@ -1,0 +1,36 @@
+package com.payment.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.payment.service.PaymentReceiptServiceImpl;
+import com.razorpay.Order;
+import com.razorpay.RazorpayException;
+
+@RestController
+@RequestMapping("/api/payment")
+public class PaymentReceiptController {
+	
+	private Logger logger = LoggerFactory.getLogger(PaymentReceiptController.class);
+	
+	@Autowired
+	PaymentReceiptServiceImpl paymentReceiptServiceImpl;
+	
+	
+	@GetMapping("/createOrder/{amount}")
+	public ResponseEntity<String> createOrder(@PathVariable double amount) throws  RazorpayException{
+		logger.info("creating order !!!");
+		Order order =  paymentReceiptServiceImpl.createOrder(amount);
+	    return new ResponseEntity<>(order,HttpStatus.OK);
+	}
+	
+	
+	
+}

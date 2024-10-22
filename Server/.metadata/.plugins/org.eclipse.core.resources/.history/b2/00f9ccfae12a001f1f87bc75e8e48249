@@ -1,0 +1,16 @@
+spring:
+  application:
+   name:
+    ApiGateway1
+  cloud:
+    gateway:
+      routes:
+        - id: PROFILESERVICE
+          uri: lb://PROFILESERVICE
+          predicates:
+            - Path=/profiles/**
+            
+          
+server:
+  port:
+    9092

@@ -1,0 +1,624 @@
+2024-10-18 18:56:59,272 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-18 18:57:46,276 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.micro.service.gateway:ApiGateway:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\pom.xml.
+2024-10-18 18:57:48,069 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cartservice.app:CartService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\CartService\pom.xml.
+2024-10-18 18:57:49,397 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eurekaserver:EurekaServer:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\pom.xml.
+2024-10-18 18:57:49,995 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.orderservice.app:OrderService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\OrderService\pom.xml.
+2024-10-18 18:57:50,343 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.payment:Payment:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\PaymentService\pom.xml.
+2024-10-18 18:57:51,018 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.productservice:ProductService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProductService\pom.xml.
+2024-10-18 18:57:51,336 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-18 18:58:03,641 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /EurekaServer/src/main/java
+2024-10-18 18:58:03,643 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /EurekaServer/src/main/resources
+2024-10-18 18:58:03,644 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /EurekaServer/src/main/resources
+2024-10-18 18:58:03,645 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /EurekaServer/src/test/java
+2024-10-18 18:58:05,619 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/main/java
+2024-10-18 18:58:05,621 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-18 18:58:05,622 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-18 18:58:05,623 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/test/java
+2024-10-18 18:58:07,624 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /OrderService/src/main/java
+2024-10-18 18:58:07,625 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /OrderService/src/main/resources
+2024-10-18 18:58:07,627 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /OrderService/src/main/resources
+2024-10-18 18:58:07,631 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /OrderService/src/test/java
+2024-10-18 18:58:09,132 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProductService/src/main/java
+2024-10-18 18:58:09,133 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProductService/src/main/resources
+2024-10-18 18:58:09,134 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProductService/src/main/resources
+2024-10-18 18:58:09,136 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProductService/src/test/java
+2024-10-18 18:58:10,556 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ApiGateway/src/main/java
+2024-10-18 18:58:10,557 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ApiGateway/src/main/resources
+2024-10-18 18:58:10,559 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ApiGateway/src/main/resources
+2024-10-18 18:58:10,560 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ApiGateway/src/test/java
+2024-10-18 18:58:11,945 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Payment/src/main/java
+2024-10-18 18:58:11,946 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/main/resources
+2024-10-18 18:58:11,947 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/main/resources
+2024-10-18 18:58:11,948 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Payment/src/test/java
+2024-10-18 18:58:11,949 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/test/resources
+2024-10-18 18:58:13,595 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CartService/src/main/java
+2024-10-18 18:58:13,596 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CartService/src/main/resources
+2024-10-18 18:58:13,597 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CartService/src/main/resources
+2024-10-18 18:58:13,599 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CartService/src/test/java
+2024-10-18 18:58:15,115 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 7 project(s) in 39 sec
+2024-10-18 18:58:15,382 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-10-18 18:58:20,082 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.micro.service.gateway:ApiGateway:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\pom.xml.
+2024-10-18 18:58:21,080 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cartservice.app:CartService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\CartService\pom.xml.
+2024-10-18 18:58:21,898 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eurekaserver:EurekaServer:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\pom.xml.
+2024-10-18 18:58:22,252 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.orderservice.app:OrderService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\OrderService\pom.xml.
+2024-10-18 18:58:22,459 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.payment:Payment:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\PaymentService\pom.xml.
+2024-10-18 18:58:22,876 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.productservice:ProductService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProductService\pom.xml.
+2024-10-18 18:58:23,060 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-18 18:58:30,495 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ApiGateway/src/main/java
+2024-10-18 18:58:30,496 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ApiGateway/src/main/resources
+2024-10-18 18:58:30,497 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ApiGateway/src/main/resources
+2024-10-18 18:58:30,499 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ApiGateway/src/test/java
+2024-10-18 18:58:31,662 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CartService/src/main/java
+2024-10-18 18:58:31,663 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CartService/src/main/resources
+2024-10-18 18:58:31,663 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CartService/src/main/resources
+2024-10-18 18:58:31,664 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CartService/src/test/java
+2024-10-18 18:58:33,160 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /EurekaServer/src/main/java
+2024-10-18 18:58:33,161 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /EurekaServer/src/main/resources
+2024-10-18 18:58:33,162 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /EurekaServer/src/main/resources
+2024-10-18 18:58:33,163 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /EurekaServer/src/test/java
+2024-10-18 18:58:34,750 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /OrderService/src/main/java
+2024-10-18 18:58:34,751 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /OrderService/src/main/resources
+2024-10-18 18:58:34,751 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /OrderService/src/main/resources
+2024-10-18 18:58:34,752 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /OrderService/src/test/java
+2024-10-18 18:58:36,469 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Payment/src/main/java
+2024-10-18 18:58:36,469 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/main/resources
+2024-10-18 18:58:36,470 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/main/resources
+2024-10-18 18:58:36,471 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Payment/src/test/java
+2024-10-18 18:58:36,472 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Payment/src/test/resources
+2024-10-18 18:58:38,278 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProductService/src/main/java
+2024-10-18 18:58:38,280 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProductService/src/main/resources
+2024-10-18 18:58:38,281 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProductService/src/main/resources
+2024-10-18 18:58:38,282 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProductService/src/test/java
+2024-10-18 18:58:39,914 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/main/java
+2024-10-18 18:58:39,914 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-18 18:58:39,915 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-18 18:58:39,916 [Worker-13: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/test/java
+2024-10-18 18:58:42,719 [Worker-13: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 7 poms: local refresh takes 0.00 sec, refresh facades takes 14.00 sec, update config takes 11.00 sec 
+2024-10-18 18:58:46,322 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-18 18:58:46,372 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 18:58:46,381 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-18 22:11:52,489 [Worker-42: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cartservice.app:CartService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\CartService\pom.xml.
+2024-10-18 22:11:56,020 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:11:56,021 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:11:56,030 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-18 22:11:58,710 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-18 22:11:58,770 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:11:58,779 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-18 22:12:02,481 [Worker-43: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cartservice.app:CartService:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\CartService\pom.xml.
+2024-10-18 22:12:06,219 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:12:06,222 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:12:06,262 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-18 22:12:08,918 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-18 22:12:08,967 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-18 22:12:08,978 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-19 00:11:11,291 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-19 09:51:47,246 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-19 10:05:42,342 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149 [605])
+2024-10-19 10:05:42,362 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149
+2024-10-19 10:05:42,364 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\aether-connector-okhttp-0.17.8.jar
+2024-10-19 10:05:42,365 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-cli-1.4.jar
+2024-10-19 10:05:42,366 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-io-2.6.jar
+2024-10-19 10:05:42,367 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-lang3-3.8.1.jar
+2024-10-19 10:05:42,368 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\guice-4.2.2-no_aop.jar
+2024-10-19 10:05:42,369 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\jansi-2.4.0.jar
+2024-10-19 10:05:42,370 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-artifact-3.8.6.jar
+2024-10-19 10:05:42,371 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-builder-support-3.8.6.jar
+2024-10-19 10:05:42,372 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-compat-3.8.6.jar
+2024-10-19 10:05:42,373 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-core-3.8.6.jar
+2024-10-19 10:05:42,374 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-embedder-3.8.6.jar
+2024-10-19 10:05:42,375 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-model-3.8.6.jar
+2024-10-19 10:05:42,375 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-model-builder-3.8.6.jar
+2024-10-19 10:05:42,376 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-plugin-api-3.8.6.jar
+2024-10-19 10:05:42,377 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-repository-metadata-3.8.6.jar
+2024-10-19 10:05:42,379 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-api-1.6.3.jar
+2024-10-19 10:05:42,384 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-connector-basic-1.6.3.jar
+2024-10-19 10:05:42,385 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-impl-1.6.3.jar
+2024-10-19 10:05:42,386 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-provider-3.8.6.jar
+2024-10-19 10:05:42,387 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-spi-1.6.3.jar
+2024-10-19 10:05:42,388 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-transport-wagon-1.6.3.jar
+2024-10-19 10:05:42,390 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-util-1.6.3.jar
+2024-10-19 10:05:42,391 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-settings-3.8.6.jar
+2024-10-19 10:05:42,391 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-settings-builder-3.8.6.jar
+2024-10-19 10:05:42,392 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-shared-utils-3.3.4.jar
+2024-10-19 10:05:42,393 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\okhttp-3.14.1.jar
+2024-10-19 10:05:42,394 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\okio-1.17.3.jar
+2024-10-19 10:05:42,396 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\org.eclipse.sisu.inject-0.3.5.jar
+2024-10-19 10:05:42,398 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\org.eclipse.sisu.plexus-0.3.5.jar
+2024-10-19 10:05:42,400 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-build-api-0.0.7.jar
+2024-10-19 10:05:42,401 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-cipher-2.0.jar
+2024-10-19 10:05:42,402 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-classworlds-2.6.0.jar
+2024-10-19 10:05:42,403 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-component-annotations-2.1.0.jar
+2024-10-19 10:05:42,404 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-interpolation-1.26.jar
+2024-10-19 10:05:42,405 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-sec-dispatcher-2.0.jar
+2024-10-19 10:05:42,406 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-utils-3.3.1.jar
+2024-10-19 10:05:42,407 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\wagon-file-3.5.1.jar
+2024-10-19 10:05:42,408 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\wagon-provider-api-3.5.1.jar
+2024-10-19 10:05:42,414 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_30.1.0.v20221112-0806 [10])
+2024-10-19 10:05:42,420 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\com.google.guava_30.1.0.v20221112-0806.jar
+2024-10-19 10:05:42,420 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_1.7.36 [916])
+2024-10-19 10:05:42,423 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\slf4j.api_1.7.36.jar
+2024-10-19 10:05:42,424 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.inject_1.0.0.v20220405-0441 [32])
+2024-10-19 10:05:42,429 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\javax.inject_1.0.0.v20220405-0441.jar
+2024-10-19 10:05:42,429 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20221112-0806 [30])
+2024-10-19 10:05:42,436 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\javax.annotation_1.3.5.v20221112-0806.jar
+2024-10-19 10:05:42,450 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway":
+2024-10-19 10:05:42,459 [Worker-1: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ApiGateway] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always clean
+2024-10-19 10:14:45,394 [Worker-24: Launching EurekaServerApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:14:45,451 [Worker-24: Launching EurekaServerApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:14:45,464 [Worker-24: Launching EurekaServerApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 10:14:49,216 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:14:49,254 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:14:49,264 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-19 10:14:53,387 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:14:53,426 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:14:53,436 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-19 10:14:57,167 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:14:57,211 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:14:57,221 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 10:15:00,113 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:15:00,164 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:15:00,173 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 10:15:03,956 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:15:04,004 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:15:04,015 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-19 10:15:07,994 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:15:08,036 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:15:08,048 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 10:18:25,992 [Worker-26: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eurekaserver:EurekaServer:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\pom.xml.
+2024-10-19 10:18:27,467 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1.pom
+2024-10-19 10:18:27,558 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1.pom
+2024-10-19 10:18:27,586 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.17.1/jackson-dataformats-text-2.17.1.pom
+2024-10-19 10:18:27,623 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.17.1/jackson-dataformats-text-2.17.1.pom
+2024-10-19 10:18:27,886 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1.jar
+2024-10-19 10:18:27,950 [Worker-26: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1.jar
+2024-10-19 10:18:30,018 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:18:30,019 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:18:30,026 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 10:18:30,437 [Worker-31: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1-sources.jar
+2024-10-19 10:18:30,500 [Worker-31: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1-sources.jar
+2024-10-19 10:18:30,514 [Worker-31: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1
+2024-10-19 10:18:32,858 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 10:18:32,903 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 10:18:32,910 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 12:38:28,359 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 12:38:28,457 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 12:38:28,465 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-19 13:31:36,251 [Worker-44: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eurekaserver:EurekaServer:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\pom.xml.
+2024-10-19 13:31:37,964 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:31:37,965 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:31:37,970 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 13:31:39,695 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:31:39,710 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:31:39,714 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 13:32:31,076 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:32:31,135 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:32:31,142 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\EurekaServer\src\test\resources
+2024-10-19 13:34:16,359 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:34:16,365 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:34:16,368 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:35:28,297 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:35:28,319 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:35:28,325 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-19 13:36:10,854 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:36:10,861 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:36:10,865 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 13:37:45,745 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:37:45,752 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:37:45,755 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 13:40:43,476 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:40:43,482 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:40:43,484 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:45:09,668 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:45:09,678 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:45:09,682 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:45:51,448 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:45:51,455 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:45:51,458 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:53:10,608 [Worker-52: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-19 13:53:12,090 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:53:12,091 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:53:12,094 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:53:14,205 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:53:14,234 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:53:14,240 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 13:53:33,010 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 13:53:33,017 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 13:53:33,020 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 14:15:43,387 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:15:43,394 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:15:43,398 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 14:15:50,953 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:15:50,961 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:15:50,963 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 14:15:54,823 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:15:54,829 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:15:54,833 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-19 14:16:42,878 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:16:42,885 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:16:42,888 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 14:19:33,754 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:19:33,759 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:19:33,762 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 14:21:04,901 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:21:04,916 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:21:04,924 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 14:22:15,187 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 14:22:15,196 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 14:22:15,206 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 15:20:56,551 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 15:20:56,571 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 15:20:56,579 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 17:13:58,459 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 17:13:58,490 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 17:13:58,497 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-19 19:42:40,880 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-19 20:54:10,345 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 20:54:10,377 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 20:54:10,383 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-19 21:05:32,513 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 21:05:32,541 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 21:05:32,550 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 21:05:38,052 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 21:05:38,072 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 21:05:38,081 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 21:29:07,473 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 21:29:07,481 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 21:29:07,486 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-19 23:21:35,170 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:21:35,204 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:21:35,210 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:22:51,799 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:22:51,921 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:22:51,957 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:25:01,045 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:25:01,103 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:25:01,109 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:26:14,520 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:26:14,535 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:26:14,542 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:26:17,186 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:26:17,219 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:26:17,230 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:26:20,606 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:26:20,614 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:26:20,623 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-19 23:26:20,759 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:26:20,766 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:26:20,772 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:27:04,093 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:27:04,103 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:27:04,111 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:33:18,974 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:33:18,990 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:33:19,001 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:37:15,265 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:37:15,280 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:37:15,287 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:38:11,676 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:38:11,690 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:38:11,697 [Worker-78: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:39:36,321 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:39:36,332 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:39:36,337 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-19 23:41:46,315 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-19 23:41:46,328 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-19 23:41:46,336 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-10-20 11:03:27,091 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-20 11:27:08,422 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 11:27:08,503 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 11:27:08,514 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-20 11:59:57,577 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 11:59:57,594 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 11:59:57,600 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-20 12:43:47,688 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-20 12:44:24,901 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 12:44:24,938 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 12:44:24,950 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-20 12:44:33,736 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 12:44:33,764 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 12:44:33,773 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-20 12:44:48,160 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 12:44:48,188 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 12:44:48,201 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-20 12:44:59,943 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 12:44:59,965 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 12:44:59,972 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-20 15:50:03,797 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 15:50:03,918 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 15:50:03,927 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-20 15:50:06,616 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 15:50:06,758 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 15:50:06,768 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-20 16:18:30,267 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:18:30,268 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:18:30,274 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-20 16:38:45,433 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 16:38:45,477 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:38:45,480 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-20 16:40:53,929 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 16:40:53,938 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:40:53,942 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-20 16:41:09,025 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 16:41:09,078 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:41:09,083 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-20 16:41:35,397 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 16:41:35,405 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:41:35,410 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-20 16:41:46,507 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-20 16:41:46,519 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-20 16:41:46,523 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 09:33:35,762 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-10-21 09:35:42,500 [Worker-4: Launching ApiGatewayApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:35:42,538 [Worker-4: Launching ApiGatewayApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:35:42,546 [Worker-4: Launching ApiGatewayApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-21 09:35:46,082 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:35:46,117 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:35:46,126 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-21 09:35:49,112 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:35:49,151 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:35:49,159 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-21 09:35:51,919 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:35:51,955 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:35:51,963 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-21 09:35:55,496 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:35:55,530 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:35:55,542 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 09:41:33,007 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149 [605])
+2024-10-21 09:41:33,014 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149
+2024-10-21 09:41:33,015 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\aether-connector-okhttp-0.17.8.jar
+2024-10-21 09:41:33,015 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-cli-1.4.jar
+2024-10-21 09:41:33,015 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-io-2.6.jar
+2024-10-21 09:41:33,015 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\commons-lang3-3.8.1.jar
+2024-10-21 09:41:33,015 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\guice-4.2.2-no_aop.jar
+2024-10-21 09:41:33,016 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\jansi-2.4.0.jar
+2024-10-21 09:41:33,016 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-artifact-3.8.6.jar
+2024-10-21 09:41:33,016 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-builder-support-3.8.6.jar
+2024-10-21 09:41:33,016 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-compat-3.8.6.jar
+2024-10-21 09:41:33,017 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-core-3.8.6.jar
+2024-10-21 09:41:33,017 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-embedder-3.8.6.jar
+2024-10-21 09:41:33,017 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-model-3.8.6.jar
+2024-10-21 09:41:33,017 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-model-builder-3.8.6.jar
+2024-10-21 09:41:33,018 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-plugin-api-3.8.6.jar
+2024-10-21 09:41:33,018 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-repository-metadata-3.8.6.jar
+2024-10-21 09:41:33,018 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-api-1.6.3.jar
+2024-10-21 09:41:33,018 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-connector-basic-1.6.3.jar
+2024-10-21 09:41:33,019 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-impl-1.6.3.jar
+2024-10-21 09:41:33,019 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-provider-3.8.6.jar
+2024-10-21 09:41:33,019 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-spi-1.6.3.jar
+2024-10-21 09:41:33,021 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-transport-wagon-1.6.3.jar
+2024-10-21 09:41:33,021 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-resolver-util-1.6.3.jar
+2024-10-21 09:41:33,021 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-settings-3.8.6.jar
+2024-10-21 09:41:33,021 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-settings-builder-3.8.6.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\maven-shared-utils-3.3.4.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\okhttp-3.14.1.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\okio-1.17.3.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\org.eclipse.sisu.inject-0.3.5.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\org.eclipse.sisu.plexus-0.3.5.jar
+2024-10-21 09:41:33,022 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-build-api-0.0.7.jar
+2024-10-21 09:41:33,023 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-cipher-2.0.jar
+2024-10-21 09:41:33,023 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-classworlds-2.6.0.jar
+2024-10-21 09:41:33,023 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-component-annotations-2.1.0.jar
+2024-10-21 09:41:33,023 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-interpolation-1.26.jar
+2024-10-21 09:41:33,023 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-sec-dispatcher-2.0.jar
+2024-10-21 09:41:33,024 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\plexus-utils-3.3.1.jar
+2024-10-21 09:41:33,024 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\wagon-file-3.5.1.jar
+2024-10-21 09:41:33,024 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\system32\config\systemprofile\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.8.604.20221130-2149\jars\wagon-provider-api-3.5.1.jar
+2024-10-21 09:41:33,027 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_30.1.0.v20221112-0806 [10])
+2024-10-21 09:41:33,030 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\com.google.guava_30.1.0.v20221112-0806.jar
+2024-10-21 09:41:33,031 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_1.7.36 [916])
+2024-10-21 09:41:33,032 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\slf4j.api_1.7.36.jar
+2024-10-21 09:41:33,032 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.inject_1.0.0.v20220405-0441 [32])
+2024-10-21 09:41:33,034 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\javax.inject_1.0.0.v20220405-0441.jar
+2024-10-21 09:41:33,034 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20221112-0806 [30])
+2024-10-21 09:41:33,035 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Windows\System32\config\systemprofile\.p2\pool\plugins\javax.annotation_1.3.5.v20221112-0806.jar
+2024-10-21 09:41:33,041 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\NEERPAND\Downloads\Server\Server\ProfileService":
+2024-10-21 09:41:33,041 [Worker-29: Launching Executing clean in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always clean
+2024-10-21 09:41:35,793 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 09:41:35,798 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 09:41:35,803 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:20:01,089 [Worker-44: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-21 10:20:02,549 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 10:20:02,567 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:20:02,572 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:21:45,023 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 10:21:45,089 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:21:45,092 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:23:21,646 [Worker-44: Launching Executing install in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\NEERPAND\Downloads\Server\Server\ProfileService":
+2024-10-21 10:23:21,647 [Worker-44: Launching Executing install in C__Users_NEERPAND_Downloads_Server_Server_ProfileService] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2024-10-21 10:23:40,929 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 10:23:40,960 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:23:40,965 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:24:02,771 [Worker-45: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-10-21 10:24:03,148 [Worker-45: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-21 10:24:04,405 [Worker-45: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/main/java
+2024-10-21 10:24:04,406 [Worker-45: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 10:24:04,414 [Worker-45: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 10:24:04,421 [Worker-45: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/test/java
+2024-10-21 10:24:05,402 [Worker-45: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2024-10-21 10:25:36,314 [Worker-55: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-21 10:25:37,882 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:25:37,883 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:25:37,887 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:25:39,686 [Worker-59: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\pom.xml.
+2024-10-21 10:25:41,232 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 10:25:41,275 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:25:41,284 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:25:43,046 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 10:25:43,053 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 10:25:43,058 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProfileService\src\test\resources
+2024-10-21 10:53:26,338 [Worker-62: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+org.eclipse.core.runtime.CoreException: Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1861)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1736)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:524)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:412)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:410)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:436)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:832)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:985)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:364)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:274)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:213)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-10-21 10:53:26,344 [Worker-62: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+org.eclipse.core.runtime.CoreException: Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1861)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1736)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:524)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:412)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:411)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:436)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:832)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:985)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:364)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:274)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:213)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-10-21 10:53:26,354 [Worker-62: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+org.eclipse.core.runtime.CoreException: Launch configuration ProfileServiceApplication references non-existing project ProfileService-1.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1861)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1736)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:225)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2147)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:377)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:259)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:229)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:187)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:412)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:436)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:832)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:985)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:364)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:274)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:213)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-10-21 11:01:08,591 [Worker-61: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\pom.xml.
+2024-10-21 11:01:11,323 [Worker-61: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/main/java
+2024-10-21 11:01:11,324 [Worker-61: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 11:01:11,325 [Worker-61: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 11:01:11,326 [Worker-61: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/test/java
+2024-10-21 11:01:12,655 [Worker-61: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 4 sec
+2024-10-21 11:01:13,441 [Worker-67: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-10-21 11:01:14,280 [Worker-67: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\pom.xml.
+2024-10-21 11:01:16,534 [Worker-67: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/main/java
+2024-10-21 11:01:16,535 [Worker-67: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 11:01:16,536 [Worker-67: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ProfileService-1/src/main/resources
+2024-10-21 11:01:16,537 [Worker-67: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ProfileService-1/src/test/java
+2024-10-21 11:01:17,964 [Worker-67: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 2.00 sec, update config takes 1.00 sec 
+2024-10-21 11:03:34,036 [Worker-62: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\pom.xml.
+2024-10-21 11:03:36,922 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 11:03:36,922 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 11:03:36,930 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 11:03:39,969 [Worker-62: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ProfileService-1:0.0.1-SNAPSHOT @ C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\pom.xml.
+2024-10-21 11:03:42,712 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 11:03:42,756 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 11:03:42,766 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 11:03:45,051 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 11:03:45,066 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 11:03:45,073 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 11:06:11,652 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 11:06:11,664 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 11:06:11,669 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 13:20:30,472 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-21 14:13:17,627 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 14:13:17,645 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 14:13:17,652 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-21 14:14:32,341 [Worker-35: Launching ProfileServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 14:14:32,357 [Worker-35: Launching ProfileServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 14:14:32,362 [Worker-35: Launching ProfileServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 17:46:54,057 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 17:46:54,183 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 17:46:54,192 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 17:47:25,977 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 17:47:26,013 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 17:47:26,020 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:40:50,270 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:40:50,271 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:40:50,275 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:41:34,570 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:41:34,571 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:41:34,575 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:42:30,350 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:42:30,351 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:42:30,355 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:42:45,971 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:42:45,971 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:42:45,975 [Worker-131: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:45:36,281 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:45:36,282 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:45:36,288 [Worker-124: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-21 21:55:06,209 [Worker-134: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 21:55:06,233 [Worker-134: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 21:55:06,239 [Worker-134: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-21 22:02:35,452 [Worker-140: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:02:35,453 [Worker-140: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:02:35,457 [Worker-140: Launching CartServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-21 22:14:24,244 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:14:24,244 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:14:24,248 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-21 22:18:19,410 [Worker-140: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:18:19,411 [Worker-140: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:18:19,415 [Worker-140: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-21 22:31:17,063 [Worker-145: Launching ProductTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 22:31:17,077 [Worker-145: Launching ProductTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:17,079 [Worker-145: Launching ProductTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-21 22:31:26,121 [Worker-147: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:26,122 [Worker-147: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:26,125 [Worker-147: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-21 22:31:47,199 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:47,199 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:47,203 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-21 22:31:58,980 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:58,981 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:31:58,985 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-21 22:40:52,899 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 22:40:52,914 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:40:52,918 [Worker-145: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-21 22:41:04,350 [Worker-146: Launching OrderServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:41:04,350 [Worker-146: Launching OrderServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:41:04,354 [Worker-146: Launching OrderServiceImplTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-21 22:46:34,290 [Worker-146: Launching OrderServiceControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:46:34,291 [Worker-146: Launching OrderServiceControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 22:46:34,297 [Worker-146: Launching OrderServiceControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-21 23:36:07,854 [Worker-168: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-21 23:36:07,907 [Worker-168: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-21 23:36:07,913 [Worker-168: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ApiGateway\src\test\resources
+2024-10-22 00:10:07,739 [Worker-182: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:07,741 [Worker-182: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:07,749 [Worker-182: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\CartService\src\test\resources
+2024-10-22 00:10:08,184 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,185 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,193 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\OrderService\src\test\resources
+2024-10-22 00:10:08,412 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,413 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,422 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\Server\Server\ProductService\src\test\resources
+2024-10-22 00:10:08,825 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,826 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 00:10:08,834 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources
+2024-10-22 08:53:44,239 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-22 09:43:43,763 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-22 09:43:43,826 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-10-22 09:43:43,834 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\NEERPAND\Downloads\ProfileService\ProfileService\src\test\resources

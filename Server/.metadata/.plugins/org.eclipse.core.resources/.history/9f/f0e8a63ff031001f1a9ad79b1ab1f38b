@@ -1,0 +1,30 @@
+package com.profileservice.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.exception.UserProfileNotFoundException;
+import com.profileservice.app.repository.ProfileRepository;
+import com.profileservice.app.security.UserTokenImpl;
+
+@Service
+public class MyUserDetailsService  implements UserDetailsService{
+
+	@Autowired
+	ProfileRepository profileRepository;
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		UserProfile userProfile = profileRepository.findByEmailId(username);
+		if(userProfile==null)
+		{
+			throw new UserProfileNotFoundException("User not found with this email id");
+		}
+		return new UserTokenImpl(userProfile);
+	}
+
+}

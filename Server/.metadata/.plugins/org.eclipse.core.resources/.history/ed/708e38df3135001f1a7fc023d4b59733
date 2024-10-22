@@ -1,0 +1,37 @@
+package com.payment.service;
+
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
+
+@Service
+public class PaymentReceiptServiceImpl implements PaymentReceiptService{
+	
+	private Logger logger = LoggerFactory.getLogger(PaymentReceiptServiceImpl.class);
+	
+	
+	
+	@Override
+	public String createOrder(double amount) throws RazorpayException {
+		
+		
+		logger.info("Calculating Amount...."+amount);
+			
+			//Linking to RazorPay
+			RazorpayClient razorpayClient = new RazorpayClient("rzp_test_BkQ5LmUmWq5nmt","qIbklGsq0d31nA0b0K2IjYY9");
+			JSONObject orderRequest = new JSONObject();
+			orderRequest.put("amount",(int)amount*100);
+			System.out.println(amount);
+			orderRequest.put("currency","INR");
+			orderRequest.put("receipt", "receipt#1");
+			Order order = razorpayClient.orders.create(orderRequest);
+			
+		
+			return order.get("id");
+		}
+}

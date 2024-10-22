@@ -1,0 +1,23 @@
+package com.cartservice.app.dao;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.cartservice.app.entity.Cart;
+
+import jakarta.validation.Valid;
+
+public interface CartDao {
+
+	ResponseEntity<Cart> getcartById(int cartId);
+
+	ResponseEntity<Cart> updateCart(@Valid Cart cart);
+
+	ResponseEntity<List<Cart>> getallcarts();
+
+	ResponseEntity<Cart> addCart(@Valid Cart cart);
+
+	ResponseEntity<String> deleteCart(@Valid int cartId);
+	
+}

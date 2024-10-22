@@ -1,0 +1,107 @@
+package com.cartservice.app.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.cartservice.app.entity.Cart;
+import com.cartservice.app.entity.Items;
+import com.cartservice.app.entity.Product;
+import com.cartservice.app.exception.CartServiceException;
+import com.cartservice.app.feign.ProductFeignClient;
+import com.cartservice.app.repository.CartRepository;
+
+import jakarta.validation.Valid;
+
+@Service
+public class CartServiceImpl implements CartService{
+
+	@Autowired
+	private CartRepository cartRepository;
+
+    @Autowired
+	private ProductFeignClient productFeignClient;
+	
+	@Override
+	public ResponseEntity<Cart> getcartById(int cartId) {
+		// TODO Auto-generated method stub
+		Optional<Cart>cart=cartRepository.findById(cartId);
+		if(cart.isEmpty()) {
+			throw new CartServiceException("Cart not found with ID "+cartId);
+			
+		}
+		return new ResponseEntity<>(cart.get(), HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Cart> updateCart(int cartId, @Valid Cart cart) {
+		// TODO Auto-generated method stub
+		Optional<Cart> existingCart=cartRepository.findById(cartId);
+		
+		if(existingCart.isEmpty()) {
+			throw new CartServiceException("Cart Id not present");
+		}
+		cart.setCartId(cartId);
+		cart.setTotalPrice(cartTotal(cart));
+		return new ResponseEntity<>(cartRepository.save(cart),HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<List<Cart>> getallcarts() {
+		// TODO Auto-generated method stub
+		if(cartRepository.findAll().isEmpty()) {
+			throw new CartServiceException("No any data present");
+			
+		}
+		return new ResponseEntity<>(cartRepository.findAll(),HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Cart> addCart(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+	 cart.getItems().forEach(item -> {
+         Product product = productFeignClient.getProductById(item.getProductId()).getBody();
+        item.setPrice(product.getPrice());
+     });
+	
+	 	
+		cart.setTotalPrice(cartTotal(cart));
+		return new ResponseEntity<>(cartRepository.save(cart),HttpStatus.OK);
+	}
+
+	@Override
+	public double cartTotal(@Valid Cart cart) {
+		// TODO Auto-generated method stub
+		double sum=0;
+		for(Items i: cart.getItems())
+		{
+			sum+=(i.getPrice()*i.getQuantity());
+		}
+		return sum;
+	}
+
+	@Override
+	public ResponseEntity<String> deleteCart(int cartId) {
+		// TODO Auto-generated method stub
+		Optional<Cart>c=cartRepository.findById(cartId);
+		if(c.isEmpty()) {
+			throw new CartServiceException("Cart Id not present");
+			
+		}
+		cartRepository.delete(c.get());
+		return new ResponseEntity<>("Item deleted successfully", HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<List<Cart>> getAllByCustomerId(int customerId) {
+		// TODO Auto-generated method stub
+		if(cartRepository.findByCustomerId(customerId).size()==0)
+			throw new CartServiceException("No Items");
+		return new ResponseEntity<List<Cart>> (cartRepository.findByCustomerId(customerId),HttpStatus.OK);
+	}
+
+}

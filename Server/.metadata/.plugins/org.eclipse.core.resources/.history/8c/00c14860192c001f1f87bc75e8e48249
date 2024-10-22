@@ -1,0 +1,240 @@
+package com.profileservice.app.service;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.profileservice.app.dao.ProfileServiceDao;
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.feign.CartClient;
+import com.profileservice.app.feign.OrderClient;
+
+//import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+
+import org.junit.jupiter.api.Test;
+
+class ProfileServiceImplTest {
+
+	@Mock
+    private ProfileServiceDao profileServiceDao;
+
+    @Mock
+    private OrderClient orderClient;
+
+    @Mock
+    private CartClient cartClient;
+
+    @InjectMocks
+    private ProfileServiceImpl profileService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    @DisplayName("Create profile successfully")
+    void testCreateProfile() {
+        UserProfile profile = new UserProfile(1, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+
+        when(profileServiceDao.createProfile(profile)).thenReturn(ResponseEntity.ok(profile));
+
+        ResponseEntity<UserProfile> response = profileService.createProfile(profile);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Get all profiles when none exist")
+    void testGetAllProfilesEmpty() {
+        when(profileServiceDao.getAllProfiles()).thenReturn(ResponseEntity.ok(Arrays.asList()));
+
+        ResponseEntity<List<UserProfile>> response = profileService.getAllProfiles();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(0, response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Delete non-existent profile")
+    void testDeleteNonExistentProfile() {
+        int profileId = 999;
+
+        when(profileServiceDao.deleteProfile(profileId)).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<String> response = profileService.deleteProfile(profileId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Update profile successfully")
+    void testUpdateProfile() {
+        int profileId = 1;
+        UserProfile profile = new UserProfile(profileId, "Updated Name", "", "updated.email@example.com", 9876543210L,
+                "Updated about", new Date(), "Female", "Admin", "updatedpassword", null);
+
+        when(profileServiceDao.updateProfile(profileId, profile)).thenReturn(ResponseEntity.ok(profile));
+
+        ResponseEntity<UserProfile> response = profileService.updateProfile(profileId, profile);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Get profile by ID successfully")
+    void testGetProfileById() {
+        int profileId = 1;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+
+        when(profileServiceDao.getProfileById(profileId)).thenReturn(ResponseEntity.ok(profile));
+
+        ResponseEntity<UserProfile> response = profileService.getProfileById(profileId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profile, response.getBody());
+    }
+
+    @Test
+    @DisplayName("Get cart by customer ID")
+    void testGetCart() {
+        int customerId = 1;
+        List<Cart> carts = Arrays.asList(new Cart(1, null), new Cart(2, null));
+
+        when(cartClient.findByCustomerId(customerId)).thenReturn(ResponseEntity.ok(carts));
+
+        ResponseEntity<List<Cart>> response = profileService.getCart(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(carts.size(), response.getBody().size());
+    }
+
+    @Test
+    @DisplayName("Get orders by customer ID")
+    void testGetOrders() {
+        int customerId = 1;
+        List<Order> orders = Arrays.asList(new Order(1, 100.0, 1, "Cash", new Date(), "Order Placed", 1),
+                new Order(2, 150.0, 1, "Card", new Date(), "Delivered", 2));
+
+        when(orderClient.findByCustomerId(customerId)).thenReturn(ResponseEntity.ok(orders));
+
+        ResponseEntity<List<Order>> response = profileService.getOrders(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(orders.size(), response.getBody().size());
+    }
+    
+    
+//    @Test
+//    @DisplayName("Create profile with null fields")
+//    void testCreateProfileWithNullFields() {
+//        UserProfile profile = new UserProfile(1, null, null, null, null, null, null, null, null, null, null);
+//
+//        ResponseEntity<UserProfile> response = profileService.createProfile(profile);
+//
+//        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+//    }
+
+    @Test
+    @DisplayName("Update profile with invalid profile ID")
+    void testUpdateProfileWithInvalidId() {
+        int profileId = 999;
+        UserProfile profile = new UserProfile(profileId, "John Doe", "", "john.doe@example.com", 1234567890L,
+                "About John", new Date(), "Male", "Customer", "password", null);
+
+        when(profileServiceDao.updateProfile(profileId, profile)).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<UserProfile> response = profileService.updateProfile(profileId, profile);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Get profile by invalid profile ID")
+    void testGetProfileByInvalidId() {
+        int profileId = 999;
+
+        when(profileServiceDao.getProfileById(profileId)).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<UserProfile> response = profileService.getProfileById(profileId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Get cart with no items")
+    void testGetCartWithNoItems() {
+    	int customerId = 1;
+        List<Cart> carts = Arrays.asList(new Cart(1, null), new Cart(2, null));
+
+        when(cartClient.findByCustomerId(customerId)).thenReturn(ResponseEntity.ok(carts));
+
+        ResponseEntity<List<Cart>> response = profileService.getCart(customerId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(2, response.getBody().size()); // Only one cart returned due to no items
+    }
+
+    @Test
+    @DisplayName("Get orders by invalid customer ID")
+    void testGetOrdersByInvalidCustomerId() {
+        int customerId = 999;
+
+        when(orderClient.findByCustomerId(customerId)).thenReturn(ResponseEntity.notFound().build());
+
+        ResponseEntity<List<Order>> response = profileService.getOrders(customerId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+//    @Test
+//    @DisplayName("Place order with invalid customer ID")
+//    void testPlaceOrderWithInvalidCustomerId() {
+//    	 int customerId = 999;
+//         Order order = new Order(1, 100.0, customerId, "Cash", new Date(), "Order Placed", 1);
+//
+//         when(profileServiceDao.getProfileById(customerId)).thenReturn(ResponseEntity.notFound().build());
+//
+//         ResponseEntity<Order> response = profileService.placeOrder(order);
+//
+//         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+//    }
+//
+//    @Test
+//    @DisplayName("Place order with non-existent cart")
+//    void testPlaceOrderWithNonExistentCart() {
+//        int customerId = 1;
+//        int cartId = 999;
+//        Order order = new Order(1, 100.0, customerId, "Cash", new Date(), "Order Placed", cartId);
+//
+//        when(profileServiceDao.getProfileById(customerId)).thenReturn(ResponseEntity.ok(new UserProfile()));
+//        when(cartClient.getCart(cartId)).thenReturn(ResponseEntity.notFound().build());
+//
+//        ResponseEntity<Order> response = profileService.placeOrder(order);
+//
+//        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+//    }
+
+}
+

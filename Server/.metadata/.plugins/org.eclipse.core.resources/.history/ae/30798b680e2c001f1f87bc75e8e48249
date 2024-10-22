@@ -1,0 +1,5 @@
+package com.profileservice.app.service;
+
+public class CustomUserDetailsService {
+
+}

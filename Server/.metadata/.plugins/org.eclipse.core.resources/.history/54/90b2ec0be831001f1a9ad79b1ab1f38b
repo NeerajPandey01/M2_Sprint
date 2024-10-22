@@ -1,0 +1,66 @@
+package com.profileservice.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.service.ProfileService;
+
+import jakarta.validation.Valid;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/profiles")
+public class ProfileController {
+    @Autowired
+    private ProfileService profileService;
+
+    @PostMapping("register")
+    public ResponseEntity<String> createProfile(@Valid @RequestBody UserProfile profile) {
+    
+    		profileService.createProfile(profile);
+		
+       return new ResponseEntity<>( "User Added Successfully",HttpStatus.OK);
+    }
+
+    @PutMapping("/{profileId}")
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable int profileId,@Valid @RequestBody UserProfile profile) {
+        return profileService.updateProfile(profileId, profile);
+    }
+
+    @GetMapping("/{profileId}")
+    public ResponseEntity<UserProfile> getProfileById(@PathVariable("profileId") int profileId) {
+        return profileService.getProfileById(profileId);
+    }
+    @GetMapping("/email/{emailId}")
+    public UserProfile getProfileByEmailId(@PathVariable("emailId") String emailId) {
+    	return profileService.getProfileByEmailId(emailId);
+    }
+
+    
+    @GetMapping
+    public ResponseEntity< List<UserProfile>> getAllProfiles() {
+        return profileService.getAllProfiles();
+        
+    }
+    @GetMapping("/cart/{customerId}")
+	public ResponseEntity<List<Cart>> getCartsByCustomerId(@PathVariable("customerId") int customerId){
+		return profileService.getCart(customerId);
+	}
+    @GetMapping("/orders/{customerId}")
+    public ResponseEntity<List<Order>> getOrdersByCustomerId(@PathVariable("customerId") int customerId){
+    	return profileService.getOrders(customerId);
+    }
+
+    @DeleteMapping("/{profileId}")
+    public ResponseEntity<String> deleteProfile(@PathVariable int profileId) {
+      return  profileService.deleteProfile(profileId);
+    }
+
+}
+

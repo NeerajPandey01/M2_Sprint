@@ -1,0 +1,22 @@
+package com.orderservice.app.service;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.orderservice.app.entity.Order;
+
+public interface OrderService {
+	ResponseEntity<List<Order>> getAllOrders();
+
+	ResponseEntity<List<Order>> getOrderByCustomerId(int customerId);
+
+	ResponseEntity<Order> placeOrder(Order order);
+
+	ResponseEntity<Order> changeOrderStatus(String orderStatus, int orderId);
+
+	ResponseEntity<String> deleteOrder(int orderId);
+
+	ResponseEntity<Order> getOrderById(int orderId);
+
+}

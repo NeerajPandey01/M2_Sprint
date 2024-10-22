@@ -1,0 +1,22 @@
+package com.orderservice.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.orderservice.app.entity.Order;
+import com.orderservice.app.service.OrderService;
+
+@RestController
+public class OrderServiceController {
+	
+	@Autowired
+	OrderService  orderService;
+	
+	public ResponseEntity<Order> getAllOrders()
+	{
+		return orderService.getAllOrders();
+	}
+
+}

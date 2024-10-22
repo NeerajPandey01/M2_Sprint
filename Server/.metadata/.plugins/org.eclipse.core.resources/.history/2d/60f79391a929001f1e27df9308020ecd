@@ -1,0 +1,5 @@
+package com.profileservice.app.dao;
+
+public class ProfileServiceDaoImpl {
+
+}

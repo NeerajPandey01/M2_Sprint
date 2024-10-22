@@ -1,0 +1,50 @@
+package com.orderservice.app.entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "order_service")
+
+public class Order {
+
+	
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private int orderId;
+
+	    //@Positive(message = "Amount paid must be positive")
+	    private double amountPaid;
+
+	    @Positive(message = "Customer ID must be positive")
+	    private int customerId;
+
+	    @NotBlank(message = "Mode of payment is required")
+	    private String modeOfPayment;
+
+	    @PastOrPresent(message = "Order date must be in the past or present")
+	    private Date orderDate;
+
+	    @NotBlank(message = "Order status is required")
+	    private String orderStatus;
+
+//	    @Positive(message = "Quantity must be positive")
+//	    private int quantity;
+	    
+	    private int cartId;
+
+	}

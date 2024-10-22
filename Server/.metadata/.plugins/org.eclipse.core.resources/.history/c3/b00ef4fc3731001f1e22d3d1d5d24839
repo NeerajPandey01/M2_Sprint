@@ -1,0 +1,9 @@
+//package com.orderservice.app.repository;
+//
+//import org.springframework.data.jpa.repository.JpaRepository;
+//
+//import com.orderservice.app.entity.UserProfile;
+//
+//public interface ProfileRepository extends JpaRepository<UserProfile, Integer>{
+//
+//}

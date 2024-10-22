@@ -1,0 +1,117 @@
+package com.profileservice.app.dao;
+
+import java.util.List;
+
+import java.util.Optional;
+import org.apache.hc.core5.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.repository.ProfileRepository;
+
+@Component
+public class ProfileServiceDaoImpl implements ProfileServiceDao{
+
+	@Autowired
+	private ProfileRepository profileRepository;
+//	@Override
+//	public ResponseEntity<UserProfile> createProfile(UserProfile profile) {
+//		// TODO Auto-generated method stub
+//		return new ResponseEntity<>(profileRepository.save(profile),HttpStatusCode.valueOf(200));
+//	}
+//
+//	@Override
+//	public ResponseEntity<List<UserProfile>> getAllProfiles() {
+//		// TODO Auto-generated method stub
+//		return new ResponseEntity<>(profileRepository.findAll(),HttpStatusCode.valueOf(200));
+//	}
+//
+//	@Override
+//	public ResponseEntity<String> deleteProfile(int profileId) {
+//		// TODO Auto-generated method stub
+//		java.util.Optional<UserProfile> op= profileRepository.findById(profileId);
+//		if(!op.isEmpty()) {
+//		profileRepository.delete(op.get());
+//		return new ResponseEntity<>("Deleted",HttpStatusCode.valueOf(200));}
+//		else {
+//			return new ResponseEntity<>("Error",HttpStatusCode.valueOf(500));
+//		}
+//	}
+//
+//	@Override
+//	public ResponseEntity<UserProfile> updateProfile(int profileId, UserProfile profile) {
+//		// TODO Auto-generated method stub
+//		return new ResponseEntity<>(profileRepository.save(profile),HttpStatusCode.valueOf(200));
+//	}
+//
+//	@Override
+//	public ResponseEntity<UserProfile> getProfileById(int profileId) {
+//		// TODO Auto-generated method stub
+//		return new ResponseEntity<>(profileRepository.findById(profileId).get(),HttpStatusCode.valueOf(200));
+//	}
+	@Override
+    public ResponseEntity<UserProfile> createProfile(UserProfile profile) {
+        try {
+            UserProfile savedProfile = profileRepository.save(profile);
+            return new ResponseEntity<>(savedProfile, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<List<UserProfile>> getAllProfiles() {
+        try {
+            List<UserProfile> profiles = profileRepository.findAll();
+            return new ResponseEntity<>(profiles, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> deleteProfile(int profileId) {
+        try {
+            Optional<UserProfile> op = profileRepository.findById(profileId);
+            if (op.isPresent()) {
+                profileRepository.delete(op.get());
+                return new ResponseEntity<>("Profile deleted successfully", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Profile not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<UserProfile> updateProfile(int profileId, UserProfile profile) {
+        try {
+            Optional<UserProfile> existingProfile = profileRepository.findById(profileId);
+            if (existingProfile.isPresent()) {
+                profile.setProfileId(profileId);
+                UserProfile updatedProfile = profileRepository.save(profile);
+                return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    public ResponseEntity<UserProfile> getProfileById(int profileId) {
+        try {
+            Optional<UserProfile> profile = profileRepository.findById(profileId);
+            return profile.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                          .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+}

@@ -1,0 +1,5 @@
+package com.orderservice.app.service;
+
+public class OrderServiceImpl {
+
+}

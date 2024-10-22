@@ -1,0 +1,68 @@
+package com.cartservice.app.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import com.cartservice.app.entity.Cart;
+import com.cartservice.app.exception.CartServiceException;
+import com.cartservice.app.repository.CartRepository;
+
+import jakarta.validation.Valid;
+@Component
+public class CartDaoImpl implements CartDao{
+	
+	@Autowired
+	private CartRepository cartRepository;
+
+	public ResponseEntity<Cart> getcartById(int cartId) {
+		// TODO Auto-generated method stub
+		Optional<Cart>cart=cartRepository.findById(cartId);
+		if(cart.isEmpty()) {
+			throw new CartServiceException("Cart Id not found: "+cartId);
+			
+		}
+		return new ResponseEntity<>(cart.get(), HttpStatus.OK);
+	}
+
+	public ResponseEntity<Cart> updateCart(Cart cart) {
+		// TODO Auto-generated method stub
+		Optional<Cart>c=cartRepository.findById(cart.getCartId());
+		if(c.isEmpty()) {
+			throw new CartServiceException("Cart Id not found: "+cart.getCartId());
+		}
+		return new ResponseEntity<>(cartRepository.save(cart),HttpStatus.OK);
+	}
+
+	public ResponseEntity<List<Cart>> getallcarts() {
+		// TODO Auto-generated method stub
+		if(cartRepository.findAll().isEmpty()) {
+			throw new CartServiceException("No any data present");
+			
+		}
+		return new ResponseEntity<>(cartRepository.findAll(),HttpStatus.OK);
+	}
+
+	public ResponseEntity<Cart> addCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return new ResponseEntity<>(cartRepository.save(cart),HttpStatus.OK);
+	}
+
+	public ResponseEntity<String> deleteCart(@Valid int cartId) {
+		// TODO Auto-generated method stub
+		Optional<Cart>c=cartRepository.findById(cartId);
+		if(c.isEmpty()) {
+			throw new CartServiceException("Deleted Cart Id not found: "+cartId);
+			
+		}
+		cartRepository.delete(c.get());
+		return new ResponseEntity<>("Deleted", HttpStatus.OK);
+	}
+	
+}
+
+

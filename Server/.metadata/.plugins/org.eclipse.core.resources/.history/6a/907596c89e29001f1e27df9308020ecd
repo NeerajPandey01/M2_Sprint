@@ -1,0 +1,13 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+
+import com.example.app.entity.UserProfile;
+
+public interface ProfileService {
+    UserProfile createProfile(UserProfile profile);
+    UserProfile updateProfile(Long id, UserProfile profile);
+    UserProfile getProfileById(Long id);
+    List<UserProfile> getAllProfiles();
+    void deleteProfile(Long id);
+}

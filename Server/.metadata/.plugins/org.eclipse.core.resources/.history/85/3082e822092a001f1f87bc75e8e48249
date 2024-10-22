@@ -1,0 +1,27 @@
+package com.orderservice.app.entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "order_service")
+public class Order {
+
+	@Id
+	private String orderId;
+	private double amountPaid;
+	private String customerId;
+	private String modeOfPayment;
+	private String orderDate;
+	private String orderStatus;
+	private Integer quantity;
+}

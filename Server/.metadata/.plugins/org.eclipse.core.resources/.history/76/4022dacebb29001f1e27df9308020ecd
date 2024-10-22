@@ -1,0 +1,10 @@
+package com.orderservice.app.service;
+
+import org.springframework.http.ResponseEntity;
+
+import com.orderservice.app.entity.Order;
+
+public interface OrderService {
+	ResponseEntity<Order> getAllOrders()
+
+}

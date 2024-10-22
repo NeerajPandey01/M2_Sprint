@@ -1,0 +1,22 @@
+package com.profileservice.app.entity;
+
+import java.util.List;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class Cart {
+
+	private int cartId;
+
+	private double totalPrice;
+
+	private List<Items> items;
+
+	public Cart(int cartId, List<Items> items) {
+		this.cartId = cartId;
+		this.items = items;
+	}
+}

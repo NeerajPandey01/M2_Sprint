@@ -1,0 +1,52 @@
+package com.productservice.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.productservice.dao.ProductDao;
+import com.productservice.entity.Product;
+
+import jakarta.validation.Valid;
+import lombok.NoArgsConstructor;
+
+@Service
+@NoArgsConstructor
+public class ProductServiceImpl implements ProductService{
+	
+	@Autowired
+	ProductDao productDao;
+
+	@Override
+	public ResponseEntity<Product> addProduct(@Valid Product product) {
+		// TODO Auto-generated method stub
+		return productDao.addProduct(product);
+	}
+
+	@Override
+	public ResponseEntity<String> deleteProductById(int productId) {
+		// TODO Auto-generated method stub
+		return productDao.deleteProductById(productId);
+	}
+
+	@Override
+	public ResponseEntity<List<Product>> getAllProducts() {
+		// TODO Auto-generated method stub
+		return productDao.getAllProducts();
+	}
+
+	@Override
+	public ResponseEntity<Product> updateProducts(@Valid Product product) {
+		// TODO Auto-generated method stub
+		return productDao.updateProducts(product);
+	}
+
+	@Override
+	public ResponseEntity<Product> getProductById(int productId) {
+		// TODO Auto-generated method stub
+		return productDao.getProductById(productId);
+	}
+
+}

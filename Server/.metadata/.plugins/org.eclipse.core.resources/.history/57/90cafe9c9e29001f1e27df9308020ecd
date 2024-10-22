@@ -1,0 +1,9 @@
+package com.profileservice.app.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.app.entity.UserProfile;
+import com.profileservice.app.entity.*;
+
+public interface ProfileRepository extends JpaRepository<UserProfile, Long> {
+}

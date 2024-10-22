@@ -1,0 +1,224 @@
+package com.profileservice.app.service;
+
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.exception.UserProfileNotFoundException;
+import com.profileservice.app.repository.ProfileRepository;
+import com.profileservice.app.security.JwtRequest;
+import com.profileservice.app.security.JwtResponse;
+import com.profileservice.app.security.JwtTokenFilter;
+
+public class ProfileServiceImplTest {
+
+    @Mock
+    private ProfileRepository profileRepository;
+
+    @Mock
+    private OrderClient orderClient;
+
+    @Mock
+    private CartClient cartClient;
+
+    @Mock
+    private UserDetailsService userDetailsService;
+
+    @Mock
+    private AuthenticationManager manager;
+
+    @Mock
+    private JwtTokenFilter helper;
+
+    @InjectMocks
+    private ProfileServiceImpl profileService;
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void testCreateProfile() {
+        UserProfile userProfile = new UserProfile(0, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        
+        when(profileRepository.findByEmailId("john.doe@example.com")).thenReturn(null);
+        when(profileRepository.save(any(UserProfile.class))).thenReturn(userProfile);
+
+        ResponseEntity<UserProfile> response = profileService.createProfile(userProfile);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals("John Doe", response.getBody().getFullName());
+    }
+
+    @Test
+    public void testGetAllProfiles() {
+        UserProfile userProfile1 = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        UserProfile userProfile2 = new UserProfile(2, "Jane Smith", "http://example.com/image2.jpg", 
+            "jane.smith@example.com", 1234567891L, "About Jane", new Date(90, 5, 15), 
+            "Female", "User", "password456", List.of());
+
+        when(profileRepository.findAll()).thenReturn(List.of(userProfile1, userProfile2));
+
+        ResponseEntity<List<UserProfile>> response = profileService.getAllProfiles();
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(2, response.getBody().size());
+    }
+
+    @Test
+    public void testDeleteProfile() {
+        UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+
+        when(profileRepository.findById(1)).thenReturn(Optional.of(userProfile));
+
+        ResponseEntity<String> response = profileService.deleteProfile(1);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Profile deleted successfully", response.getBody());
+
+        verify(profileRepository, times(1)).delete(userProfile);
+    }
+
+    @Test
+    public void testUpdateProfile() {
+        UserProfile existingProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+        UserProfile updatedProfile = new UserProfile(1, "John Doe Updated", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John Updated", new Date(95, 1, 1), 
+            "Male", "Admin", "newpassword123", List.of());
+
+        when(profileRepository.findById(1)).thenReturn(Optional.of(existingProfile));
+        when(profileRepository.save(any(UserProfile.class))).thenReturn(updatedProfile);
+
+        ResponseEntity<UserProfile> response = profileService.updateProfile(1, updatedProfile);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals("John Doe Updated", response.getBody().getFullName());
+    }
+
+    @Test
+    public void testGetProfileById() {
+        UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+            "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+            "Male", "Admin", "password123", List.of());
+
+        when(profileRepository.findById(1)).thenReturn(Optional.of(userProfile));
+
+        ResponseEntity<UserProfile> response = profileService.getProfileById(1);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals("John Doe", response.getBody().getFullName());
+    }
+
+//    @Test
+//    public void testGetCart() {
+//        Cart cart1 = new Cart();
+//        cart1.setCartId(1);
+//        cart1.setProductId(101);
+//        cart1.setQuantity(2);
+//
+//        Cart cart2 = new Cart();
+//        cart2.setCartId(2);
+//        cart2.setProductId(102);
+//        cart2.setQuantity(1);
+//
+//        when(profileRepository.findById(1)).thenReturn(Optional.of(new UserProfile()));
+//        when(cartClient.getAllByCustomerId(1)).thenReturn(ResponseEntity.ok(List.of(cart1, cart2)));
+//
+//        ResponseEntity<List<Cart>> response = profileService.getCart(1);
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//        assertNotNull(response.getBody());
+//        assertEquals(2, response.getBody().size());
+//    }
+
+    @Test
+    public void testGetOrders() {
+        Order order1 = new Order();
+        order1.setOrderId(1);
+   
+                order1.setCustomerId(1);
+                order1.setOrderStatus("Shipped");
+
+                Order order2 = new Order();
+                order2.setOrderId(2);
+                order2.setCustomerId(1);
+                order2.setOrderStatus("Delivered");
+
+                when(profileRepository.findById(1)).thenReturn(Optional.of(new UserProfile()));
+                when(orderClient.getOrderByCustomerId(1)).thenReturn(ResponseEntity.ok(List.of(order1, order2)));
+
+                ResponseEntity<List<Order>> response = profileService.getOrders(1);
+                assertEquals(HttpStatus.OK, response.getStatusCode());
+                assertNotNull(response.getBody());
+                assertEquals(2, response.getBody().size());
+            }
+
+            @Test
+            public void testGetProfileByEmailId() {
+                UserProfile userProfile = new UserProfile(1, "John Doe", "http://example.com/image.jpg", 
+                    "john.doe@example.com", 1234567890L, "About John", new Date(95, 1, 1), 
+                    "Male", "Admin", "password123", List.of());
+
+                when(profileRepository.findByEmailId("john.doe@example.com")).thenReturn(userProfile);
+
+                UserProfile response = profileService.getProfileByEmailId("john.doe@example.com");
+                assertNotNull(response);
+                assertEquals("John Doe", response.getFullName());
+            }
+
+            @Test
+            public void testLogin() {
+                JwtRequest jwtRequest = new JwtRequest();
+                jwtRequest.setEmail("john.doe@example.com");
+                jwtRequest.setPassword("password123");
+
+                UserDetails userDetails = mock(UserDetails.class);
+                when(userDetails.getUsername()).thenReturn("john.doe@example.com");
+                when(userDetailsService.loadUserByUsername("john.doe@example.com")).thenReturn(userDetails);
+                when(helper.generateToken(userDetails)).thenReturn("dummyToken");
+
+                doNothing().when(manager).authenticate(any());
+
+                ResponseEntity<JwtResponse> response = profileService.login(jwtRequest);
+                assertEquals(HttpStatus.OK, response.getStatusCode());
+                assertNotNull(response.getBody());
+                assertEquals("dummyToken", response.getBody().getJwtToken());
+            }
+
+            @Test
+            public void testAuthenticateInvalidCredentials() {
+                doThrow(new BadCredentialsException("Invalid Username or Password")).when(manager).authenticate(any());
+
+                assertThrows(BadCredentialsException.class, () -> {
+                    profileService.login(new JwtRequest("john.doe@example.com", "wrongPassword"));
+                });
+            }
+        }

@@ -1,0 +1,18 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+import org.springframework.http.ResponseEntity;
+
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.UserProfile;
+public interface ProfileService {
+    ResponseEntity<UserProfile> createProfile(UserProfile profile);
+    ResponseEntity<List<UserProfile>> getAllProfiles();
+    ResponseEntity<String> deleteProfile(int profileId);
+	ResponseEntity<UserProfile> updateProfile(int profileId, UserProfile profile);
+	ResponseEntity<UserProfile> getProfileById(int profileId);
+	ResponseEntity<List<Cart>> getCart(int customerId);
+	ResponseEntity<List<Order>> getOrders(int customerId);
+	UserProfile getProfileByEmailId(String emailId);
+}
+

@@ -1,0 +1,80 @@
+package com.profileservice.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import com.profileservice.app.dao.ProfileServiceDao;
+import com.profileservice.app.entity.Cart;
+import com.profileservice.app.entity.Order;
+import com.profileservice.app.entity.UserProfile;
+import com.profileservice.app.feign.CartClient;
+import com.profileservice.app.feign.OrderClient;
+
+import jakarta.validation.Valid;
+@Service
+public class ProfileServiceImpl implements ProfileService{
+    
+	@Autowired
+    private ProfileServiceDao profileServiceDao;
+	
+	 @Autowired
+	    private OrderClient orderClient;
+
+	    @Autowired
+	    private CartClient cartClient;
+
+	    // Other methods...
+
+	   
+
+
+	@Override
+	public ResponseEntity<UserProfile> createProfile(@Valid UserProfile profile) {
+		// TODO Auto-generated method stub
+		return profileServiceDao.createProfile(profile);
+	}
+
+	@Override
+	public ResponseEntity<List<UserProfile>> getAllProfiles() {
+		// TODO Auto-generated method stub
+		return profileServiceDao.getAllProfiles();
+	}
+
+	@Override
+	public ResponseEntity<String> deleteProfile(int profileId) {
+		// TODO Auto-generated method stub
+		return profileServiceDao.deleteProfile(profileId);
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> updateProfile(int profileId,@Valid UserProfile profile) {
+		// TODO Auto-generated method stub
+		return profileServiceDao.updateProfile(profileId,profile);
+	}
+
+	@Override
+	public ResponseEntity<UserProfile> getProfileById(int profileId) {
+		// TODO Auto-generated method stub
+		return profileServiceDao.getProfileById(profileId);
+	}
+
+
+	@Override
+	public ResponseEntity<List<Cart>> getCart(int customerId) {
+		// TODO Auto-generated method stub
+		return cartClient.findByCustomerId(customerId);
+	}
+
+	@Override
+	public ResponseEntity<List<Order>> getOrders(int customerId) {
+		// TODO Auto-generated method stub
+		return orderClient.findByCustomerId(customerId);
+	}
+
+	
+
+   
+}
+

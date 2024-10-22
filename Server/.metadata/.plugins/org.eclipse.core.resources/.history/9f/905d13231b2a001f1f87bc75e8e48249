@@ -1,0 +1,5 @@
+package com.profileservice.app.exception;
+
+public class InvalidUserProfileException {
+
+}
